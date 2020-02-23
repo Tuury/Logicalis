@@ -33,10 +33,18 @@ const NavigationItems = [
     icon: 'feather icon-activity',
     children: [
       {
-        id: 'plantillas',
-        title: 'Plantillas',
+        id: 'plantillaTrabajo',
+        title: 'Plantillas de Trabajo',
         type: 'item',
-        url: '/plantillas',
+        url: '/plantillaTrabajo',
+        classes: 'nav-item',
+        icon: 'feather icon-sidebar',
+      },
+      {
+        id: 'plantillaWorkflow',
+        title: 'Plantillas de Workflow',
+        type: 'item',
+        url: '/plantillaWorkflow',
         classes: 'nav-item',
         icon: 'feather icon-sidebar',
       },
@@ -52,7 +60,7 @@ const NavigationItems = [
         id: 'proyectos',
         title: 'Proyectos',
         type: 'item',
-        url: '/sample-page',
+        url: '/proyectos',
         classes: 'nav-item',
         icon: 'feather icon-sidebar',
       },
@@ -81,7 +89,40 @@ const NavigationItems = [
         icon: 'feather icon-sidebar'
       }
     ]
+  },
+  {
+    id: 'acceso',
+    title: 'Acceso',
+    type: 'group',
+    icon: 'feather icon-activity',
+    children: [
+      {
+        id: 'organizaciones',
+        title: 'Organizaciones',
+        type: 'item',
+        url: '/organizaciones',
+        classes: 'nav-item',
+        icon: 'feather icon-sidebar',
+      },
+      {
+        id: 'usuarios',
+        title: 'Usuarios',
+        type: 'item',
+        url: '/usuarios',
+        classes: 'nav-item',
+        icon: 'feather icon-sidebar',
+      },
+      {
+        id: 'equipos',
+        title: 'Equipos',
+        type: 'item',
+        url: '/equipos',
+        classes: 'nav-item',
+        icon: 'feather icon-sidebar',
+      }
+    ]
   }
+
 ];
 
 @Injectable()

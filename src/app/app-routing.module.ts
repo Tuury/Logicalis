@@ -14,8 +14,20 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
-        path: 'plantillas',
-        loadChildren: () => import('./admin/pages/frm-validation/frm-validation.module').then(module => module.FrmValidationModule)
+        path: 'plantillaTrabajo',
+        loadChildren: () => import('./admin/pages/plantilla-trabajo/plantilla-trabajo.module').then(module => module.PlantillaTrabajoModule)
+      },
+      {
+        path: 'plantillaWorkflow',
+        loadChildren: () => import('./admin/pages/plantilla-workflow/plantilla-workflow.module').then(module => module.PlantillaWorkflowModule)
+      },
+      {
+        path: 'proyectos',
+        loadChildren: () => import('./admin/pages/proyectos/proyectos.module').then(module => module.ProyectosModule)
+      },
+      {
+        path: 'organizaciones',
+        loadChildren: () => import('./admin/pages/organizaciones/organizaciones.module').then(module => module.OrganizacionesModule)
       }
     ]
   },
