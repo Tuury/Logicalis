@@ -7,6 +7,7 @@ import {CustomFormsModule} from 'ng2-validation';
 import {FormsModule} from '@angular/forms';
 import {CardModule} from '../../shared/card/card.module';
 import {SelectModule} from "ng-select";
+import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {SelectModule} from "ng-select";
     CustomFormsModule,
     FormsModule,
     CardModule,
-    SelectModule
+    SelectModule,
+    NgbTooltipModule
   ],
   declarations: [PlantillaTrabajoComponent]
 })

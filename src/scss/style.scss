@@ -64,9 +64,6 @@ File: style.css
 @import "layout-dark";
 @import "layout-rtl";
 
-// Dashboard Widgets
-@import "themes/dashboard/widget";
-
 // custom plugin
 @import "themes/plugin/sweatalert";
 @import "themes/plugin/lightbox";
@@ -86,14 +83,9 @@ File: style.css
 @import "themes/plugin/peitychart";
 
 // pages
-@import "themes/pages/authentication";
-@import "themes/pages/maintaince";
 @import "themes/pages/pages";
 @import "themes/pages/help-desk";
-@import "themes/pages/fullcalender";
 @import "themes/pages/icon-lauouts";
-@import "themes/pages/user";
-@import "themes/pages/task-board";
 
 // custom
 @import "themes/custom";

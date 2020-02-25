@@ -1,240 +1,180 @@
 <div class="row">
   <div class="col-sm-12">
-    <app-card cardTitle="NUEVA PLANTILLA DE TRABAJO">
-      <button type="button" class="btn btn-light">Detalles</button>
-      <button type="button" class="btn btn-light">Permisos</button>
-      <button type="button" class="btn btn-light">Tareas Completadas</button>
-      <button type="button" class="btn btn-light">Programaciones</button>
-      <button type="button" class="btn btn-primary">Anadir Encuesta</button>
+    <app-card cardTitle="NUEVO PROYECTO">
+      <div class="botonera-workflow">
+        <button type="button" class="btn btn-light">Detalles</button>
+        <button type="button" class="btn btn-light">Permisos</button>
+        <button type="button" class="btn btn-light">Tareas Completadas</button>
+        <button type="button" class="btn btn-light">Programaciones</button>
+        <button type="button" class="btn btn-primary">Anadir Encuesta</button>
+        <button type="button" class="btn btn-primary">Visualizador de flujos de trabajo</button>
+      </div>
       <form #validationForm="ngForm" class="editForm" novalidate>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-control-label" for="email">NOMBRE</label>
+              <label class="form-control-label">NOMBRE</label>
               <input class="form-control input-md" id="nombre" name="nombre" type="text"
-                     [ngClass]="{'is-invalid': !email.valid && (email.dirty || email.touched || isSubmit)}"
-                     #email="ngModel"  [(ngModel)]="formInput.nombre">
-              <label *ngIf="!email.valid && (email.dirty || email.touched || isSubmit)" id="validation-email-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid email
-                address.</label>
+                     [(ngModel)]="formInput.nombre">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-label">DESCRIPCION</label>
-              <input type="password" class="form-control" name="validation-password" placeholder="Enter Password"
-                     [ngClass]="{'is-invalid': !password.valid && (password.dirty || password.touched || isSubmit)}"
-                     #password="ngModel" minlength="6" required [(ngModel)]="formInput.descripcion">
-              <label *ngIf="!password.valid && (password.dirty || password.touched || isSubmit)"
-                     id="validation-password-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid
-                password.</label>
+              <input class="form-control" name="descripcion"
+                     minlength="6" [(ngModel)]="formInput.descripcion">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-label">TIPO DE TRABAJO</label>
-              <input type="password" class="form-control" name="validation-password-confirm"
-                     placeholder="Enter Confirm Password"
-                     [ngClass]="{'is-invalid': !confirmPassword.valid && (confirmPassword.dirty || confirmPassword.touched || isSubmit)}"
-                     #confirmPassword="ngModel" [equalTo]="password" [(ngModel)]="formInput.tipoDeTrabajo">
-              <label *ngIf="!confirmPassword.valid && (confirmPassword.dirty || confirmPassword.touched || isSubmit)"
-                     id="validation-password-confirm-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid confirm
-                password.</label>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">INVENTARIO</label>
-              <input type="text" class="form-control" name="validation-required" placeholder="Enter Value"
-                     [ngClass]="{'is-invalid': !requiredInput.valid && (requiredInput.dirty || requiredInput.touched || isSubmit)}"
-                     #requiredInput="ngModel" required [(ngModel)]="formInput.inventario">
-              <label *ngIf="!requiredInput.valid && (requiredInput.dirty || requiredInput.touched || isSubmit)"
-                     id="validation-required-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">This field should be
-                required</label>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">PROYECTO</label>
-              <input type="text" class="form-control" name="validation-url" placeholder="Enter Value"
-                     [ngClass]="{'is-invalid': !url.valid && (url.dirty || url.touched || isSubmit)}" #url="ngModel"
-                     required url [(ngModel)]="formInput.proyecto">
-              <label *ngIf="!url.valid && (url.dirty || url.touched || isSubmit)" id="validation-url-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter valid
-                URL.</label>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">PLAYBOOK</label>
-              <input type="text" class="form-control" name="validation-phone" placeholder="Enter Contact Number"
-                     [ngClass]="{'is-invalid': !phone.valid && (phone.dirty || phone.touched || isSubmit)}"
-                     #phone="ngModel" required maxlength="12" minlength="10" phone="IN" [(ngModel)]="formInput.playbook">
-              <label *ngIf="!phone.valid && (phone.dirty || phone.touched || isSubmit)" id="validation-phone-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter valid contact
-                number.</label>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">CREDENCIAL</label>
-              <select class="form-control" name="validation-cmbGear"
-                      [ngClass]="{'is-invalid': !cmbGear.valid && (cmbGear.dirty || cmbGear.touched || isSubmit)}"
-                      #cmbGear="ngModel" required [(ngModel)]="formInput.credencial">
-                <option value>Select gear...</option>
-                <optgroup label="Climbing">
-                  <option value="pitons">Pitons</option>
-                  <option value="cams">Cams</option>
-                  <option value="nuts">Nuts</option>
-                  <option value="bolts">Bolts</option>
-                  <option value="stoppers">Stoppers</option>
-                  <option value="sling">Sling</option>
-                </optgroup>
-                <optgroup label="Skiing">
-                  <option value="skis">Skis</option>
-                  <option value="skins">Skins</option>
-                  <option value="poles">Poles</option>
-                </optgroup>
+              <label class="form-label">ORGANIZACION <i class="fas fa-question-circle"></i></label>
+              <select name="tipoDeTrabajo" class="form-control form-control-default"
+                      [(ngModel)]="formInput.tipoDeTrabajo">
+                <option value="opt1">Select One Value Only</option>
+                <option value="opt2">Type 2</option>
+                <option value="opt3">Type 3</option>
+                <option value="opt4">Type 4</option>
+                <option value="opt5">Type 5</option>
+                <option value="opt6">Type 6</option>
+                <option value="opt7">Type 7</option>
+                <option value="opt8">Type 8</option>
               </select>
-              <label *ngIf="!cmbGear.valid && (cmbGear.dirty || cmbGear.touched || isSubmit)"
-                     id="validation-cmbGear-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">The Gear selection should be
-                required.</label>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-label">FORKS</label>
-              <textarea class="form-control" name="validation-address"
-                        [ngClass]="{'is-invalid': !address.valid && (address.dirty || address.touched || isSubmit)}"
-                        #address="ngModel" required [(ngModel)]="formInput.forks"></textarea>
-              <label *ngIf="!address.valid && (address.dirty || address.touched || isSubmit)"
-                     id="validation-address-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">The address field should be
-                required.</label>
+              <label class="form-label">INVENTARIO <i class="fas fa-question-circle"></i></label>
+              <select name="inventario" [(ngModel)]="formInput.inventario" class="form-control form-control-default">
+                <option value="opt1">Select One Value Only</option>
+                <option value="opt2">Type 2</option>
+                <option value="opt3">Type 3</option>
+                <option value="opt4">Type 4</option>
+                <option value="opt5">Type 5</option>
+                <option value="opt6">Type 6</option>
+                <option value="opt7">Type 7</option>
+                <option value="opt8">Type 8</option>
+              </select>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-label">LIMITE</label>
-              <textarea class="form-control" name="validation-address"
-                        [ngClass]="{'is-invalid': !address.valid && (address.dirty || address.touched || isSubmit)}"
-                        #address="ngModel" required [(ngModel)]="formInput.limite"></textarea>
-              <label *ngIf="!address.valid && (address.dirty || address.touched || isSubmit)"
-                     id="validation-address-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">The address field should be
-                required.</label>
+              <label class="form-label">ETIQUETAS <i class="fas fa-question-circle"></i></label>
+              <input class="form-control input-md" id="nombre" name="nombre" type="text"
+                     [(ngModel)]="formInput.nombre">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-label">NIVEL DE DETALLE</label>
-              <textarea class="form-control" name="validation-address"
-                        [ngClass]="{'is-invalid': !address.valid && (address.dirty || address.touched || isSubmit)}"
-                        #address="ngModel" required [(ngModel)]="formInput.nivelDeDetalle"></textarea>
-              <label *ngIf="!address.valid && (address.dirty || address.touched || isSubmit)"
-                     id="validation-address-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">The address field should be
-                required.</label>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-control-label" for="email">ETIQUETAS DE TRABAJO</label>
-              <input class="form-control input-md" id="email" name="email" type="text" placeholder="Enter Email"
-                     [ngClass]="{'is-invalid': !email.valid && (email.dirty || email.touched || isSubmit)}"
-                     #email="ngModel" required email [(ngModel)]="formInput.etiquetasDeTrabajo">
-              <label *ngIf="!email.valid && (email.dirty || email.touched || isSubmit)" id="validation-email-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid email
-                address.</label>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-control-label" for="email">OMITIR ETIQUETAS</label>
-              <input class="form-control input-md" id="email" name="email" type="text" placeholder="Enter Email"
-                     [ngClass]="{'is-invalid': !email.valid && (email.dirty || email.touched || isSubmit)}"
-                     #email="ngModel" required email [(ngModel)]="formInput.omitirEtiquetas">
-              <label *ngIf="!email.valid && (email.dirty || email.touched || isSubmit)" id="validation-email-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid email
-                address.</label>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-control-label" for="email">ETIQUETAS</label>
-              <input class="form-control input-md" id="email" name="email" type="text" placeholder="Enter Email"
-                     [ngClass]="{'is-invalid': !email.valid && (email.dirty || email.touched || isSubmit)}"
-                     #email="ngModel" required email [(ngModel)]="formInput.etiquetas">
-              <label *ngIf="!email.valid && (email.dirty || email.touched || isSubmit)" id="validation-email-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid email
-                address.</label>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-control-label" for="email">ENTORNO DE ANSIBLE</label>
-              <input class="form-control input-md" id="email" name="email" type="text" placeholder="Enter Email"
-                     [ngClass]="{'is-invalid': !email.valid && (email.dirty || email.touched || isSubmit)}"
-                     #email="ngModel" required email [(ngModel)]="formInput.entornoAnsible">
-              <label *ngIf="!email.valid && (email.dirty || email.touched || isSubmit)" id="validation-email-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid email
-                address.</label>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-control-label" for="email">GRUPOS DE INSTANCIAS</label>
-              <input class="form-control input-md" id="email" name="email" type="text" placeholder="Enter Email"
-                     [ngClass]="{'is-invalid': !email.valid && (email.dirty || email.touched || isSubmit)}"
-                     #email="ngModel" required email [(ngModel)]="formInput.grupoInstancias">
-              <label *ngIf="!email.valid && (email.dirty || email.touched || isSubmit)" id="validation-email-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid email
-                address.</label>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-control-label" for="email">JOB SLICING</label>
-              <input class="form-control input-md" id="email" name="email" type="text" placeholder="Enter Email"
-                     [ngClass]="{'is-invalid': !email.valid && (email.dirty || email.touched || isSubmit)}"
-                     #email="ngModel" required email [(ngModel)]="formInput.jobSlicing">
-              <label *ngIf="!email.valid && (email.dirty || email.touched || isSubmit)" id="validation-email-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid email
-                address.</label>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-control-label" for="email">TIMEOUT</label>
-              <input class="form-control input-md" id="email" name="email" type="text" placeholder="Enter Email"
-                     [ngClass]="{'is-invalid': !email.valid && (email.dirty || email.touched || isSubmit)}"
-                     #email="ngModel" required email [(ngModel)]="formInput.timeout">
-              <label *ngIf="!email.valid && (email.dirty || email.touched || isSubmit)" id="validation-email-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid email
-                address.</label>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-control-label" for="email">MOSTRAR CAMBIOS</label>
-              <input class="form-control input-md" id="email" name="email" type="text" placeholder="Enter Email"
-                     [ngClass]="{'is-invalid': !email.valid && (email.dirty || email.touched || isSubmit)}"
-                     #email="ngModel" required email [(ngModel)]="formInput.mostrarCambios">
-              <label *ngIf="!email.valid && (email.dirty || email.touched || isSubmit)" id="validation-email-error"
-                     class="error jquery-validation-error small form-text invalid-feedback">Please enter a valid email
-                address.</label>
+              <label class="form-label">OPCIONES <i class="fas fa-question-circle"></i></label>
+              <select name="playbook" class="form-control form-control-default" [ngModel]="formInput.playbook">
+                <option value="opt1">Select One Value Only</option>
+                <option value="opt2">Type 2</option>
+                <option value="opt3">Type 3</option>
+                <option value="opt4">Type 4</option>
+                <option value="opt5">Type 5</option>
+                <option value="opt6">Type 6</option>
+                <option value="opt7">Type 7</option>
+                <option value="opt8">Type 8</option>
+              </select>
             </div>
           </div>
         </div>
-
-        <div class="form-group text-center">
-          <button type="button" uiSref="work" class="btn btn-primary btn-raised" (click)="save(validationForm)"> Next
-            <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+        <div class="form-group text-center flex-justify-end">
+          <button type="button" class="btn btn-primary btn-raised m-l-10" (click)="save(validationForm)"> LANZAMIENTO
+          </button>
+          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(validationForm)"> CANCELAR
+          </button>
+          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(validationForm)"> GUARDAR
+          </button>
+        </div>
+      </form>
+    </app-card>
+    <app-card cardTitle="PROYECTOS">
+      <div class="botonera-workflow">
+        <button type="button" class="btn btn-light">Detalles</button>
+        <button type="button" class="btn btn-light">Permisos</button>
+        <button type="button" class="btn btn-light">Tareas Completadas</button>
+        <button type="button" class="btn btn-light">Programaciones</button>
+        <button type="button" class="btn btn-primary">Anadir Encuesta</button>
+        <button type="button" class="btn btn-primary">Visualizador de flujos de trabajo</button>
+      </div>
+      <form #validationForm="ngForm" class="editForm" novalidate>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-control-label">NOMBRE</label>
+              <input class="form-control input-md" id="nombre" name="nombre" type="text"
+                     [(ngModel)]="formInput.nombre">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-label">DESCRIPCION</label>
+              <input class="form-control" name="descripcion"
+                     minlength="6" [(ngModel)]="formInput.descripcion">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-label">ORGANIZACION <i class="fas fa-question-circle"></i></label>
+              <select name="tipoDeTrabajo" class="form-control form-control-default"
+                      [(ngModel)]="formInput.tipoDeTrabajo">
+                <option value="opt1">Select One Value Only</option>
+                <option value="opt2">Type 2</option>
+                <option value="opt3">Type 3</option>
+                <option value="opt4">Type 4</option>
+                <option value="opt5">Type 5</option>
+                <option value="opt6">Type 6</option>
+                <option value="opt7">Type 7</option>
+                <option value="opt8">Type 8</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-label">INVENTARIO <i class="fas fa-question-circle"></i></label>
+              <select name="inventario" [(ngModel)]="formInput.inventario" class="form-control form-control-default">
+                <option value="opt1">Select One Value Only</option>
+                <option value="opt2">Type 2</option>
+                <option value="opt3">Type 3</option>
+                <option value="opt4">Type 4</option>
+                <option value="opt5">Type 5</option>
+                <option value="opt6">Type 6</option>
+                <option value="opt7">Type 7</option>
+                <option value="opt8">Type 8</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-label">ETIQUETAS <i class="fas fa-question-circle"></i></label>
+              <input class="form-control input-md" id="nombre" name="nombre" type="text"
+                     [(ngModel)]="formInput.nombre">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-label">OPCIONES <i class="fas fa-question-circle"></i></label>
+              <select name="playbook" class="form-control form-control-default" [ngModel]="formInput.playbook">
+                <option value="opt1">Select One Value Only</option>
+                <option value="opt2">Type 2</option>
+                <option value="opt3">Type 3</option>
+                <option value="opt4">Type 4</option>
+                <option value="opt5">Type 5</option>
+                <option value="opt6">Type 6</option>
+                <option value="opt7">Type 7</option>
+                <option value="opt8">Type 8</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group text-center flex-justify-end">
+          <button type="button" class="btn btn-primary btn-raised m-l-10" (click)="save(validationForm)"> LANZAMIENTO
+          </button>
+          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(validationForm)"> CANCELAR
+          </button>
+          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(validationForm)"> GUARDAR
+          </button>
         </div>
       </form>
     </app-card>

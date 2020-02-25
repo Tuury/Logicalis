@@ -20,6 +20,10 @@ export class FormInput {
   jobSlicing: any;
   timeout: any;
   mostrarCambios: any;
+  privilegios: boolean;
+  callbacks: boolean;
+  trabajosConcurrentes: boolean;
+  cache: boolean;
 }
 
 @Component({
@@ -63,7 +67,11 @@ export class PlantillaTrabajoComponent implements OnInit {
       grupoInstancias: '',
       jobSlicing: '',
       timeout: '',
-      mostrarCambios: ''
+      mostrarCambios: '',
+      trabajosConcurrentes: false,
+      callbacks: false,
+      cache: false,
+      privilegios: true,
     };
   }
 
