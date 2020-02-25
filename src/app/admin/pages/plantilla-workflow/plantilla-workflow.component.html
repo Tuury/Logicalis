@@ -29,7 +29,7 @@
             <div class="form-group">
               <label class="form-label">ORGANIZACION <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i></label>
               <select name="tipoDeTrabajo" class="form-control form-control-default"
-                      [(ngModel)]="formInput.tipoDeTrabajo">
+                      [(ngModel)]="formInput.organizacion">
                 <option value="opt1">Select One Value Only</option>
                 <option value="opt2">Type 2</option>
                 <option value="opt3">Type 3</option>
@@ -59,14 +59,14 @@
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-label">ETIQUETAS <i class="fas fa-question-circle"></i></label>
-              <input class="form-control input-md" id="nombre" name="nombre" type="text"
-                     [(ngModel)]="formInput.nombre">
+              <input class="form-control input-md" id="etiquetas" name="etiquetas" type="text"
+                     [(ngModel)]="formInput.etiquetas">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-label">OPCIONES <i class="fas fa-question-circle"></i></label>
-              <select name="playbook" class="form-control form-control-default" [ngModel]="formInput.playbook">
+              <select name="playbook" class="form-control form-control-default" [ngModel]="formInput.opciones">
                 <option value="opt1">Select One Value Only</option>
                 <option value="opt2">Type 2</option>
                 <option value="opt3">Type 3</option>
@@ -92,7 +92,7 @@
             </div>
             <div class="form-group">
               <textarea name="variablesAdicionales" id="variablesAdicionales" cols="30" rows="10"
-                        class="wid-250"></textarea>
+                        class="wid-250" [(ngModel)]="formInput.variablesAdicionales"></textarea>
             </div>
           </div>
         </div>

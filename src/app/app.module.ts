@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AdminComponent} from './admin/admin.component';
-import {FooterComponent} from './admin/footer/footer.component';
 import {NavigationComponent} from './admin/navigation/navigation.component';
 import {NavBarComponent} from './admin/nav-bar/nav-bar.component';
 import {NavContentComponent} from './admin/navigation/nav-content/nav-content.component';
@@ -24,7 +23,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     AdminComponent,
-    FooterComponent,
     NavigationComponent,
     NavBarComponent,
     NavContentComponent,
@@ -33,8 +31,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     NavItemComponent,
     NavLeftComponent,
     NavRightComponent,
-    NavSearchComponent,
-    FooterComponent
+    NavSearchComponent
   ],
   imports: [
     BrowserModule,

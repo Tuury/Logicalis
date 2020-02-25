@@ -22,7 +22,7 @@ export class FormInput {
 }
 
 @Component({
-  selector: 'app-frm-validation',
+  selector: 'app-plantilla-trabajo',
   templateUrl: './proyectos.component.html',
   styleUrls: ['./proyectos.component.scss']
 })

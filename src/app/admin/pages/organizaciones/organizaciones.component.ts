@@ -3,26 +3,12 @@ import { Component, OnInit } from '@angular/core';
 export class FormInput {
   nombre: any;
   descripcion: any;
-  tipoDeTrabajo: any;
-  inventario: any;
-  proyecto: any;
-  playbook: any;
-  credencial: any;
-  forks: any;
-  limite: any;
-  nivelDeDetalle: any;
-  etiquetasDeTrabajo: any;
-  omitirEtiquetas: any;
-  etiquetas: any;
-  entornoAnsible: any;
   grupoInstancias: any;
-  jobSlicing: any;
-  timeout: any;
-  mostrarCambios: any;
+  entornoAnsible: any;
 }
 
 @Component({
-  selector: 'app-frm-validation',
+  selector: 'app-plantilla-trabajo',
   templateUrl: './organizaciones.component.html',
   styleUrls: ['./organizaciones.component.scss']
 })
@@ -30,6 +16,11 @@ export class OrganizacionesComponent implements OnInit {
   formInput: FormInput;
   form: any;
   public isSubmit: boolean;
+  organizaciones: any[] = [
+    {
+     nombre: 'Default'
+    }
+  ];
   constructor() {
     this.isSubmit = false;
   }
@@ -38,27 +29,14 @@ export class OrganizacionesComponent implements OnInit {
     this.formInput = {
       nombre: '',
       descripcion: '',
-      tipoDeTrabajo: '',
-      inventario: '',
-      proyecto: '',
-      playbook: '',
-      credencial: '',
-      forks: '',
-      limite: '',
-      nivelDeDetalle: '',
-      etiquetasDeTrabajo: '',
-      omitirEtiquetas: '',
-      etiquetas: '',
       entornoAnsible: '',
-      grupoInstancias: '',
-      jobSlicing: '',
-      timeout: '',
-      mostrarCambios: ''
+      grupoInstancias: ''
     };
   }
 
   save(form: any) {
-    console.log(form.form.value);
+    console.log(form);
+    this.organizaciones.push({nombre: form.form.value.nombre});
   }
 
 }

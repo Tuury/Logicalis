@@ -14,7 +14,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-control-label">NOMBRE</label>
+              <label class="form-control-label"><i class="asterisco">* </i> NOMBRE</label>
               <input class="form-control input-md" id="nombre" name="nombre" type="text"
                      [(ngModel)]="formInput.nombre">
             </div>
@@ -30,13 +30,13 @@
             <div class="form-group">
               <div class="flex-space-between">
                 <div>
-                  <label class="form-label">TIPO DE TRABAJO
+                  <label class="form-label"><i class="asterisco">* </i>TIPO DE TRABAJO
                     <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
                   </label>
                 </div>
                 <div>
-                  <input class="form-check-input" type="checkbox" name="cache">
-                  <label class="form-check-label f-14" for="cache">Preguntar al ejecutar</label>
+                  <input class="form-check-input" type="checkbox" id="name" name="name">
+                  <label class="form-check-label f-14" for="name">Preguntar al ejecutar</label>
                 </div>
               </div>
               <select name="tipoDeTrabajo" class="form-control form-control-default"
@@ -56,7 +56,7 @@
             <div class="form-group">
               <div class="flex-space-between">
                 <div>
-                  <label class="form-label">INVENTARIO
+                  <label class="form-label"><i class="asterisco">* </i>INVENTARIO
                     <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
                   </label>
                 </div>
@@ -79,7 +79,7 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-label">PROYECTO <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i></label>
+              <label class="form-label"><i class="asterisco">* </i>PROYECTO <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i></label>
               <select name="proyecto" [(ngModel)]="formInput.proyecto" class="form-control form-control-default">
                 <option value="opt1">Select One Value Only</option>
                 <option value="opt2">Type 2</option>
@@ -94,7 +94,7 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-label">PLAYBOOK <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i></label>
+              <label class="form-label"><i class="asterisco">* </i>PLAYBOOK <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i></label>
               <select name="playbook" class="form-control form-control-default" [ngModel]="formInput.playbook">
                 <option value="opt1">Select One Value Only</option>
                 <option value="opt2">Type 2</option>
@@ -175,7 +175,7 @@
             <div class="form-group">
               <div class="flex-space-between">
                 <div>
-                  <label class="form-label">NIVEL DE DETALLE
+                  <label class="form-label"><i class="asterisco">* </i>NIVEL DE DETALLE
                     <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
                   </label>
                 </div>
@@ -311,8 +311,8 @@
                   </label>
                 </div>
                 <div>
-                  <input class="form-check-input" type="checkbox" name="cache">
-                  <label class="form-check-label f-14" for="cache">Preguntar al ejecutar</label>
+                  <input class="form-check-input" type="checkbox" id="mostrarCambios" name="mostrarCambios">
+                  <label class="form-check-label f-14" for="mostrarCambios">Preguntar al ejecutar</label>
                 </div>
               </div>
             </div>
