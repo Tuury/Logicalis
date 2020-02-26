@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-12">
     <app-card cardTitle="NUEVA ORGANIZACION">
-      <div class="botonera-workflow">
+      <div class="botonera">
         <button type="button" class="btn btn-light">Detalles</button>
         <button type="button" class="btn btn-light">Usuarios</button>
         <button type="button" class="btn btn-light">Permisos</button>
@@ -25,31 +25,26 @@
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-label">GRUPO DE INSTANCIAS<i class="fas fa-question-circle"></i></label>
-              <select name="inventario" [(ngModel)]="formInput.grupoInstancias" class="form-control form-control-default">
-                <option value="opt1">Select One Value Only</option>
-                <option value="opt2">Type 2</option>
-                <option value="opt3">Type 3</option>
-                <option value="opt4">Type 4</option>
-                <option value="opt5">Type 5</option>
-                <option value="opt6">Type 6</option>
-                <option value="opt7">Type 7</option>
-                <option value="opt8">Type 8</option>
-              </select>
+              <div class="input-group mb-3">
+                <button class="btn btn-light" type="button" data-toggle="modal"
+                        (click)="modalSelect.show(this.HARDCODEO,grupoInstancias)"><i class="fas fa-search"></i>
+                </button>
+                <input type="text" #grupoInstancias name="grupoInstancias" id="grupoInstancias"
+                       [(ngModel)]="formInput.grupoInstancias" class="form-control" >
+                <div class="input-group-append">
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-label">ENTORNO DE ANSIBLE<i class="fas fa-question-circle"></i></label>
-              <select name="inventario" [(ngModel)]="formInput.entornoAnsible" class="form-control form-control-default">
-                <option value="opt1">Select One Value Only</option>
-                <option value="opt2">Type 2</option>
-                <option value="opt3">Type 3</option>
-                <option value="opt4">Type 4</option>
-                <option value="opt5">Type 5</option>
-                <option value="opt6">Type 6</option>
-                <option value="opt7">Type 7</option>
-                <option value="opt8">Type 8</option>
-              </select>
+              <div class="input-group mb-3">
+                <input type="text" #entornoAnsible name="entornoAnsible" id="entornoAnsible" class="form-control" [(ngModel)]="formInput.entornoAnsible" >
+                <div class="input-group-append">
+                  <button class="btn btn-light" type="button" data-toggle="modal" (click)="modalSelect.show(this.ENTORNO_ANSIBLE,entornoAnsible)"><i class="fas fa-arrow-circle-down"></i></button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -61,10 +56,73 @@
         </div>
       </form>
     </app-card>
+
     <app-card cardTitle="ORGANIZACIONES">
-      <div *ngFor="let o of organizaciones">
-        <p>{{o.nombre}}</p>
+      <div *ngFor="let o of organizaciones" class="col-md-6 col-xl-4 organizacionCard">
+        <app-card [hidHeader]="true">
+          <div class="row">
+            <div class="col-md-12">
+              <h6 class="card-title float-left ">{{o.nombre}}</h6>
+              <i class="far fa-trash-alt float-right"></i>
+              <i class="fas fa-pencil-alt float-right"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <div class="row">
+                <span class="badge m-r-5 wid-35 hei-20 badge-pill badge-secondary">0</span>
+                <p>USUARIOS</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="row">
+                <span class="badge m-r-5 wid-35 hei-20 badge-pill badge-secondary">0</span>
+                <p>EQUIPOS</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <div class="row">
+                <span class="badge m-r-5 wid-35 hei-20 badge-pill badge-secondary">0</span>
+                <p>INVENTARIOS</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="row">
+                <span class="badge m-r-5 wid-35 hei-20 badge-pill badge-secondary">0</span>
+                <p>PROYECTOS</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <div class="row">
+                <span class="badge m-r-5 wid-35 hei-20 badge-pill badge-secondary">0</span>
+                <p>PLANTILLAS</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="row">
+                <span class="badge m-r-5 wid-35 hei-20 badge-pill badge-secondary">0</span>
+                <p>ADMINS</p>
+              </div>
+            </div>
+          </div>
+        </app-card>
       </div>
     </app-card>
+
   </div>
 </div>
+
+
+<app-ui-modal #modalSelect hideHeader="true" dialogClass="modal-dialog-centered modal-sm">
+  <div class="app-modal-body wid-250">
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
+            (click)="modalSelect.hide()"><span aria-hidden="true">&times;</span></button>
+    <div *ngFor="let c of modalSelect.content" class="col-md-12 col-xs-12 flex-justify-center modalContainer">
+      <button type="button" class="btn btn-outline-secondary" (click)="selectedValue(c.value, this.modalSelect.formInput)">{{c.value}}</button>
+    </div>
+  </div>
+</app-ui-modal>

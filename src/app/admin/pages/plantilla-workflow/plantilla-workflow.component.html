@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-12">
     <app-card cardTitle="NUEVA PLANTILLA DE FLUJO DE TRABAJO">
-      <div class="botonera-workflow">
+      <div class="botonera">
         <button type="button" class="btn btn-light">Detalles</button>
         <button type="button" class="btn btn-light">Permisos</button>
         <button type="button" class="btn btn-light">Tareas Completadas</button>
@@ -9,11 +9,11 @@
         <button type="button" class="btn btn-primary">Anadir Encuesta</button>
         <button type="button" class="btn btn-primary">Visualizador de flujos de trabajo</button>
       </div>
-      <form #validationForm="ngForm" class="editForm" novalidate>
+      <form #workflowForm="ngForm" class="editForm">
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-control-label">NOMBRE</label>
+              <label class="form-control-label"><i class="asterisco">* </i>NOMBRE</label>
               <input class="form-control input-md" id="nombre" name="nombre" type="text"
                      [(ngModel)]="formInput.nombre">
             </div>
@@ -27,7 +27,8 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-label">ORGANIZACION <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i></label>
+              <label class="form-label">ORGANIZACION <i class="fas fa-question-circle" [placement]="'top'"
+                                                        ngbTooltip="tooltip on top"></i></label>
               <select name="tipoDeTrabajo" class="form-control form-control-default"
                       [(ngModel)]="formInput.organizacion">
                 <option value="opt1">Select One Value Only</option>
@@ -43,7 +44,8 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-label">INVENTARIO <i class="fas fa-question-circle"></i></label>
+              <label class="form-label">INVENTARIO <i class="fas fa-question-circle" [placement]="'top'"
+                                                      ngbTooltip="tooltip on top"></i></label>
               <select name="inventario" [(ngModel)]="formInput.inventario" class="form-control form-control-default">
                 <option value="opt1">Select One Value Only</option>
                 <option value="opt2">Type 2</option>
@@ -58,31 +60,29 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-label">ETIQUETAS <i class="fas fa-question-circle"></i></label>
+              <label class="form-label">ETIQUETAS <i class="fas fa-question-circle" [placement]="'top'"
+                                                     ngbTooltip="tooltip on top"></i></label>
               <input class="form-control input-md" id="etiquetas" name="etiquetas" type="text"
                      [(ngModel)]="formInput.etiquetas">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label class="form-label">OPCIONES <i class="fas fa-question-circle"></i></label>
-              <select name="playbook" class="form-control form-control-default" [ngModel]="formInput.opciones">
-                <option value="opt1">Select One Value Only</option>
-                <option value="opt2">Type 2</option>
-                <option value="opt3">Type 3</option>
-                <option value="opt4">Type 4</option>
-                <option value="opt5">Type 5</option>
-                <option value="opt6">Type 6</option>
-                <option value="opt7">Type 7</option>
-                <option value="opt8">Type 8</option>
-              </select>
+              <label class="form-label">OPCIONES <i class="fas fa-question-circle" [placement]="'top'"
+                                                    ngbTooltip="tooltip on top"></i></label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="trabajosConcurrentes" name="trabajosConcurrentes"
+                       [ngModel]="formInput.trabajosConcurrentes">
+                <label class="form-check-label" for="trabajosConcurrentes">ACTIVAR LOS TRABAJOS CONCURRENTES <i
+                  class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top" ></i></label>
+              </div>
             </div>
           </div>
           <div class="col-md-12">
             <div class="flex-space-between">
               <div>
                 <label class="form-label">VARIABLES ADICIONALES
-                  <i class="fas fa-question-circle"></i>
+                  <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
                 </label>
               </div>
               <div>
@@ -92,16 +92,16 @@
             </div>
             <div class="form-group">
               <textarea name="variablesAdicionales" id="variablesAdicionales" cols="30" rows="10"
-                        class="wid-250" [(ngModel)]="formInput.variablesAdicionales"></textarea>
+                        [(ngModel)]="formInput.variablesAdicionales"></textarea>
             </div>
           </div>
         </div>
         <div class="form-group text-center flex-justify-end">
-          <button type="button" class="btn btn-primary btn-raised m-l-10" (click)="save(validationForm)"> LANZAMIENTO
+          <button type="button" class="btn btn-primary btn-raised m-l-10" (click)="save(workflowForm)"> LANZAMIENTO
           </button>
-          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(validationForm)"> CANCELAR
+          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(workflowForm)"> CANCELAR
           </button>
-          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(validationForm)"> GUARDAR
+          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(workflowForm)"> GUARDAR
           </button>
         </div>
       </form>

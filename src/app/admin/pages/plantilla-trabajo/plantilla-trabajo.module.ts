@@ -8,17 +8,19 @@ import {FormsModule} from '@angular/forms';
 import {CardModule} from '../../shared/card/card.module';
 import {SelectModule} from "ng-select";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import {ModalModule} from '../../shared/ui-modal/modal.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PlantillaTrabajoRoutingModule,
-    CustomFormsModule,
-    FormsModule,
-    CardModule,
-    SelectModule,
-    NgbTooltipModule
-  ],
+    imports: [
+        CommonModule,
+        PlantillaTrabajoRoutingModule,
+        CustomFormsModule,
+        FormsModule,
+        CardModule,
+        SelectModule,
+        NgbTooltipModule,
+        ModalModule
+    ],
   declarations: [PlantillaTrabajoComponent]
 })
 export class PlantillaTrabajoModule { }

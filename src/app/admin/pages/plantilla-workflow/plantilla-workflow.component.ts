@@ -8,6 +8,7 @@ export class FormInput {
   etiquetas: any;
   opciones: any;
   variablesAdicionales: any;
+  trabajosConcurrentes: boolean;
 }
 
 @Component({
@@ -32,7 +33,8 @@ export class PlantillaWorkflowComponent implements OnInit {
       inventario: '',
       etiquetas: '',
       opciones: '',
-      variablesAdicionales: 'juaja'
+      variablesAdicionales: '',
+      trabajosConcurrentes: false
     };
   }
 

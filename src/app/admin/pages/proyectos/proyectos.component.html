@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-sm-12">
     <app-card cardTitle="NUEVO PROYECTO">
-      <div class="botonera-workflow">
+      <div class="botonera">
         <button type="button" class="btn btn-light">Detalles</button>
         <button type="button" class="btn btn-light">Permisos</button>
         <button type="button" class="btn btn-light">Plantillas de Trabajo</button>
         <button type="button" class="btn btn-light">Programaciones</button>
       </div>
-      <form #validationForm="ngForm" class="editForm" novalidate>
+      <form #proyectoForm="ngForm" class="editForm" novalidate>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
@@ -26,8 +26,8 @@
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-label">ORGANIZACION <i class="fas fa-question-circle"></i></label>
-              <select name="tipoDeTrabajo" class="form-control form-control-default"
-                      [(ngModel)]="formInput.tipoDeTrabajo">
+              <select name="organizacion" class="form-control form-control-default"
+                      [(ngModel)]="formInput.organizacion">
                 <option value="opt1">Select One Value Only</option>
                 <option value="opt2">Type 2</option>
                 <option value="opt3">Type 3</option>
@@ -42,43 +42,71 @@
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-label">TIPO SCM <i class="fas fa-question-circle"></i></label>
-              <select name="inventario" [(ngModel)]="formInput.inventario" class="form-control form-control-default">
-                <option value="opt1">Select One Value Only</option>
-                <option value="opt2">Type 2</option>
-                <option value="opt3">Type 3</option>
-                <option value="opt4">Type 4</option>
-                <option value="opt5">Type 5</option>
-                <option value="opt6">Type 6</option>
-                <option value="opt7">Type 7</option>
-                <option value="opt8">Type 8</option>
-              </select>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="scm" #scm [(ngModel)]="formInput.scm">
+                <div class="input-group-append">
+                  <button class="btn btn-light" type="button" data-toggle="modal"
+                          (click)="modalSelect.show(this.SCM,scm)"><i class="fas fa-arrow-circle-down"></i>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-label">ENTORNO DE ANSIBLE <i class="fas fa-question-circle"></i></label>
-              <select name="inventario" [(ngModel)]="formInput.inventario" class="form-control form-control-default">
-                <option value="opt1">Select One Value Only</option>
-                <option value="opt2">Type 2</option>
-                <option value="opt3">Type 3</option>
-                <option value="opt4">Type 4</option>
-                <option value="opt5">Type 5</option>
-                <option value="opt6">Type 6</option>
-                <option value="opt7">Type 7</option>
-                <option value="opt8">Type 8</option>
-              </select>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="entornoAnsible" #entornoAnsible [(ngModel)]="formInput.entornoAnsible">
+                <div class="input-group-append">
+                  <button class="btn btn-light" type="button" data-toggle="modal"
+                          (click)="modalSelect.show(this.ENTORNO_ANSIBLE,entornoAnsible)"><i class="fas fa-arrow-circle-down"></i>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="form-group text-center flex-justify-end">
-          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(validationForm)"> CANCELAR
+          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="cancel()"> CANCELAR
           </button>
-          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(validationForm)"> GUARDAR
+          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(proyectoForm)"> GUARDAR
           </button>
         </div>
       </form>
     </app-card>
-    <app-card cardTitle="PROYECTOS">
+    <app-card cardTitle="Proyectos" blockClass="table-border-style">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tbody>
+          <tr *ngFor="let p of proyectos">
+            <td>
+              <div class="float-left">
+                <i class="far fa-circle"></i>
+               <label> {{p.nombre}}</label>
+                <span class="badge m-r-5  badge-pill badge-light">{{p.scm}}</span>
+
+              </div>
+              <div class="float-right">
+                <i class="far fa-trash-alt"></i>
+              </div>
+
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </app-card>
   </div>
 </div>
+
+<app-ui-modal #modalSelect hideHeader="true" dialogClass="modal-dialog-centered modal-sm">
+  <div class="app-modal-body wid-250">
+    <div *ngFor="let c of modalSelect.content" class="col-md-12 col-xs-12 flex-justify-center modalContainer">
+      <button type="button" class="btn btn-outline-secondary"
+              (click)="selectedValue(c.value, this.modalSelect.formInput)">{{c.value}}</button>
+    </div>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalSelect.hide()">Cancelar</button>
+  </div>
+</app-ui-modal>

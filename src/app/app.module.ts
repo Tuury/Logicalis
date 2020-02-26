@@ -16,7 +16,6 @@ import {PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 import {NavSearchComponent} from './admin/nav-bar/nav-right/nav-search/nav-search.component';
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 import {NavigationItem} from './admin/navigation/navigation';
-import {BreadcrumbModule} from './admin/shared/breadcrumb/breadcrumb.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -37,7 +36,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     PerfectScrollbarModule,
-    BreadcrumbModule,
     BrowserAnimationsModule,
     NgbDropdownModule
   ],

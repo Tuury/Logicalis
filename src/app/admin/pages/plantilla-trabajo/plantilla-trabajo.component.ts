@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {IOption} from "ng-select";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {UiModalComponent} from '../../shared/ui-modal/ui-modal.component';
+import {DataSelect} from '../../shared/data/dataSelect';
 
 export class FormInput {
   nombre: any;
@@ -32,17 +33,15 @@ export class FormInput {
   styleUrls: ['./plantilla-trabajo.component.scss']
 })
 export class PlantillaTrabajoComponent implements OnInit {
+  @ViewChild('modalSelect', {static: false}) exampleModalCenter: UiModalComponent;
   formInput: FormInput;
   form: any;
   public isSubmit: boolean;
 
-  public PLAYER_ONE: Array<IOption> = [
-    {value: '0', label: 'Alabama'},
-    {value: '1', label: 'Wyoming'},
-    {value: '2', label: 'Coming'},
-    {value: '3', label: 'Henry Die'},
-    {value: '4', label: 'John Doe'}
-  ];
+  public TIPO_DE_TRABAJO = DataSelect.TIPO_DE_TRABAJO;
+  public NIVEL_DE_DETALLE = DataSelect.NIVEL_DE_DETALLE;
+  public ENTORNO_ANSIBLE = DataSelect.ENTORNO_ANSIBLE;
+  public HARDCODEO = DataSelect.HARDCODEO;
 
   constructor() {
     this.isSubmit = false;
@@ -73,6 +72,56 @@ export class PlantillaTrabajoComponent implements OnInit {
       cache: false,
       privilegios: true,
     };
+  }
+
+  selectedValue(value: any, input: HTMLInputElement) {
+    switch (input.name) {
+      case 'tipoDeTrabajo': {
+        this.formInput.tipoDeTrabajo = value;
+        break;
+      }
+      case 'nivelDeDetalle': {
+        this.formInput.nivelDeDetalle = value;
+        break;
+      }
+      case 'entornoAnsible': {
+        this.formInput.entornoAnsible = value;
+        break;
+      }
+      case 'inventario': {
+        this.formInput.inventario = value;
+        break;
+      }
+      case 'proyecto': {
+        this.formInput.proyecto = value;
+        break;
+      }
+      case 'playbook': {
+        this.formInput.playbook = value;
+        break;
+      }
+      case 'credencial': {
+        this.formInput.credencial = value;
+        break;
+      }
+      case 'grupoInstancias': {
+        this.formInput.grupoInstancias = value;
+        break;
+      }
+      case 'jobSlicing': {
+        this.formInput.jobSlicing = value;
+        break;
+      }
+      case 'timeout': {
+        this.formInput.timeout = value;
+        break;
+      }
+      case 'forks': {
+        this.formInput.forks = value;
+        break;
+      }
+    }
+    this.exampleModalCenter.hide();
   }
 
   save(form: any) {

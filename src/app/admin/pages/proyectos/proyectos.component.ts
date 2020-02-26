@@ -1,24 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {UiModalComponent} from '../../shared/ui-modal/ui-modal.component';
+import {DataSelect} from '../../shared/data/dataSelect';
 
 export class FormInput {
   nombre: any;
   descripcion: any;
-  tipoDeTrabajo: any;
-  inventario: any;
-  proyecto: any;
-  playbook: any;
-  credencial: any;
-  forks: any;
-  limite: any;
-  nivelDeDetalle: any;
-  etiquetasDeTrabajo: any;
-  omitirEtiquetas: any;
-  etiquetas: any;
+  organizacion: any;
+  scm: any;
   entornoAnsible: any;
-  grupoInstancias: any;
-  jobSlicing: any;
-  timeout: any;
-  mostrarCambios: any;
 }
 
 @Component({
@@ -27,9 +16,24 @@ export class FormInput {
   styleUrls: ['./proyectos.component.scss']
 })
 export class ProyectosComponent implements OnInit {
+  @ViewChild('modalSelect', {static: false}) exampleModalCenter: UiModalComponent;
   formInput: FormInput;
   form: any;
   public isSubmit: boolean;
+
+  public ENTORNO_ANSIBLE = DataSelect.ENTORNO_ANSIBLE;
+  public SCM = DataSelect.SCM;
+  proyectos: any[] = [
+    {
+      nombre: 'Cisco acl',
+      scm: 'Manual'
+    },
+    {
+      nombre: 'Demo Project',
+      scm: 'GIT'
+    }
+  ];
+
   constructor() {
     this.isSubmit = false;
   }
@@ -38,27 +42,32 @@ export class ProyectosComponent implements OnInit {
     this.formInput = {
       nombre: '',
       descripcion: '',
-      tipoDeTrabajo: '',
-      inventario: '',
-      proyecto: '',
-      playbook: '',
-      credencial: '',
-      forks: '',
-      limite: '',
-      nivelDeDetalle: '',
-      etiquetasDeTrabajo: '',
-      omitirEtiquetas: '',
-      etiquetas: '',
+      organizacion: '',
+      scm: '',
       entornoAnsible: '',
-      grupoInstancias: '',
-      jobSlicing: '',
-      timeout: '',
-      mostrarCambios: ''
     };
   }
 
+  selectedValue(value: any, input: HTMLInputElement) {
+    switch (input.name) {
+      case 'scm': {
+        this.formInput.scm = value;
+        break;
+      }
+      case 'entornoAnsible': {
+        this.formInput.entornoAnsible = value;
+        break;
+      }
+    }
+    this.exampleModalCenter.hide();
+  }
+
+  cancel() {
+    this.ngOnInit();
+  }
   save(form: any) {
     console.log(form.form.value);
+    this.proyectos.push({nombre: form.form.value.nombre, scm: form.form.value.scm});
   }
 
 }
