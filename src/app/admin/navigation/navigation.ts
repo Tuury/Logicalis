@@ -38,7 +38,7 @@ const NavigationItems = [
         type: 'item',
         url: '/plantillaTrabajo',
         classes: 'nav-item',
-        icon: 'feather icon-sidebar',
+        icon: 'feather icon-edit',
       },
       {
         id: 'plantillaWorkflow',
@@ -46,15 +46,7 @@ const NavigationItems = [
         type: 'item',
         url: '/plantillaWorkflow',
         classes: 'nav-item',
-        icon: 'feather icon-sidebar',
-      },
-      {
-        id: 'credenciales',
-        title: 'Credenciales',
-        type: 'item',
-        url: '/sample-page',
-        classes: 'nav-item',
-        icon: 'feather icon-sidebar',
+        icon: 'feather icon-edit',
       },
       {
         id: 'proyectos',
@@ -62,23 +54,7 @@ const NavigationItems = [
         type: 'item',
         url: '/proyectos',
         classes: 'nav-item',
-        icon: 'feather icon-sidebar',
-      },
-      {
-        id: 'inventario',
-        title: 'Inventario',
-        type: 'item',
-        url: '/sample-page',
-        classes: 'nav-item',
-        icon: 'feather icon-sidebar',
-      },
-      {
-        id: 'scripts-inventario',
-        title: 'Scripts de inventario',
-        type: 'item',
-        url: '/sample-page',
-        classes: 'nav-item',
-        icon: 'feather icon-sidebar',
+        icon: 'feather icon-folder',
       }
     ]
   },
@@ -94,23 +70,7 @@ const NavigationItems = [
         type: 'item',
         url: '/organizaciones',
         classes: 'nav-item',
-        icon: 'feather icon-sidebar',
-      },
-      {
-        id: 'usuarios',
-        title: 'Usuarios',
-        type: 'item',
-        url: '/usuarios',
-        classes: 'nav-item',
-        icon: 'feather icon-sidebar',
-      },
-      {
-        id: 'equipos',
-        title: 'Equipos',
-        type: 'item',
-        url: '/equipos',
-        classes: 'nav-item',
-        icon: 'feather icon-sidebar',
+        icon: 'feather icon-command',
       }
     ]
   }
