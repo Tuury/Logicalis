@@ -1,32 +1,32 @@
 <div class="row">
   <div class="col-sm-12">
     <app-card cardTitle="NUEVO PROYECTO">
-      <div class="botonera">
-        <button type="button" class="btn btn-light">Detalles</button>
-        <button type="button" class="btn btn-light">Permisos</button>
-        <button type="button" class="btn btn-light">Plantillas de Trabajo</button>
-        <button type="button" class="btn btn-light">Programaciones</button>
-      </div>
+      <nav class="nav nav-pills nav-fill">
+        <a class="nav-item nav-link active" >Active</a>
+        <a class="nav-item nav-link" href="#">Link</a>
+        <a class="nav-item nav-link" href="#">Link</a>
+        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+      </nav>
       <form #proyectoForm="ngForm" class="editForm" novalidate>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-control-label">NOMBRE</label>
-              <input class="form-control input-md" id="nombre" name="nombre" type="text"
+              <input class="form-control form-control-sm input-md" id="nombre" name="nombre" type="text"
                      [(ngModel)]="formInput.nombre">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-label">DESCRIPCION</label>
-              <input class="form-control" name="descripcion"
+              <input class="form-control form-control-sm" name="descripcion"
                      minlength="6" [(ngModel)]="formInput.descripcion">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-label">ORGANIZACION <i class="fas fa-question-circle"></i></label>
-              <select name="organizacion" class="form-control form-control-default"
+              <select name="organizacion" class="form-control form-control-sm form-control-default"
                       [(ngModel)]="formInput.organizacion">
                 <option value="opt1">Select One Value Only</option>
                 <option value="opt2">Type 2</option>
@@ -43,7 +43,7 @@
             <div class="form-group">
               <label class="form-label">TIPO SCM <i class="fas fa-question-circle"></i></label>
               <div class="input-group mb-3">
-                <input type="text" class="form-control" name="scm" #scm [(ngModel)]="formInput.scm">
+                <input type="text" class="form-control form-control-sm" name="scm" #scm [(ngModel)]="formInput.scm">
                 <div class="input-group-append">
                   <button class="btn btn-light" type="button" data-toggle="modal"
                           (click)="modalSelect.show(this.SCM,scm)"><i class="fas fa-arrow-circle-down"></i>
@@ -56,7 +56,7 @@
             <div class="form-group">
               <label class="form-label">ENTORNO DE ANSIBLE <i class="fas fa-question-circle"></i></label>
               <div class="input-group mb-3">
-                <input type="text" class="form-control" name="entornoAnsible" #entornoAnsible [(ngModel)]="formInput.entornoAnsible">
+                <input type="text" class="form-control form-control-sm" name="entornoAnsible" #entornoAnsible [(ngModel)]="formInput.entornoAnsible">
                 <div class="input-group-append">
                   <button class="btn btn-light" type="button" data-toggle="modal"
                           (click)="modalSelect.show(this.ENTORNO_ANSIBLE,entornoAnsible)"><i class="fas fa-arrow-circle-down"></i>

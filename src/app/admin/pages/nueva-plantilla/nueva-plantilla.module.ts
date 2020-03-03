@@ -7,7 +7,7 @@ import {CardModule} from '../../shared/card/card.module';
 import {SelectModule} from "ng-select";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {ModalModule} from '../../shared/ui-modal/modal.module';
-import {PlantillaTrabajoComponent} from "./plantilla-trabajo.component";
+import {NuevaPlantillaComponent} from './nueva-plantilla.component';
 
 @NgModule({
   imports: [
@@ -19,7 +19,7 @@ import {PlantillaTrabajoComponent} from "./plantilla-trabajo.component";
     NgbTooltipModule,
     ModalModule
   ],
-  declarations: [PlantillaTrabajoComponent]
+  declarations: [NuevaPlantillaComponent]
 })
-export class PlantillaTrabajoModule {
+export class NuevaPlantillaModule {
 }

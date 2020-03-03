@@ -11,14 +11,14 @@
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-control-label">NOMBRE</label>
-              <input class="form-control input-md" id="nombre" name="nombre" type="text"
+              <input class="form-control form-control-sm input-md" id="nombre" name="nombre" type="text"
                      [(ngModel)]="formInput.nombre">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label class="form-label">DESCRIPCION</label>
-              <input class="form-control" name="descripcion"
+              <input class="form-control form-control-sm" name="descripcion"
                      minlength="6" [(ngModel)]="formInput.descripcion">
             </div>
           </div>
@@ -30,7 +30,7 @@
                         (click)="modalSelect.show(this.HARDCODEO,grupoInstancias)"><i class="fas fa-search"></i>
                 </button>
                 <input type="text" #grupoInstancias name="grupoInstancias" id="grupoInstancias"
-                       [(ngModel)]="formInput.grupoInstancias" class="form-control" >
+                       [(ngModel)]="formInput.grupoInstancias" class="form-control form-control-sm" >
                 <div class="input-group-append">
                 </div>
               </div>
@@ -40,7 +40,7 @@
             <div class="form-group">
               <label class="form-label">ENTORNO DE ANSIBLE<i class="fas fa-question-circle"></i></label>
               <div class="input-group mb-3">
-                <input type="text" #entornoAnsible name="entornoAnsible" id="entornoAnsible" class="form-control" [(ngModel)]="formInput.entornoAnsible" >
+                <input type="text" #entornoAnsible name="entornoAnsible" id="entornoAnsible" class="form-control form-control-sm" [(ngModel)]="formInput.entornoAnsible" >
                 <div class="input-group-append">
                   <button class="btn btn-light" type="button" data-toggle="modal" (click)="modalSelect.show(this.ENTORNO_ANSIBLE,entornoAnsible)"><i class="fas fa-arrow-circle-down"></i></button>
                 </div>

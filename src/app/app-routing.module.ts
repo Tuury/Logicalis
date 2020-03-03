@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('./admin/pages/plantilla-workflow/plantilla-workflow.module').then(module => module.PlantillaWorkflowModule)
       },
       {
+        path: 'nuevaPlantilla',
+        loadChildren: () => import('./admin/pages/nueva-plantilla/nueva-plantilla.module').then(module => module.NuevaPlantillaModule)
+      },
+      {
         path: 'proyectos',
         loadChildren: () => import('./admin/pages/proyectos/proyectos.module').then(module => module.ProyectosModule)
       },

@@ -5,7 +5,7 @@ import {PlantillaTrabajoComponent} from './plantilla-trabajo.component';
 const routes: Routes = [
   {
     path: '',
-    component: PlantillaTrabajoComponent
+    component: PlantillaTrabajoComponent,
   }
 ];
 
