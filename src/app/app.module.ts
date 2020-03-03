@@ -17,6 +17,8 @@ import {NavSearchComponent} from './admin/nav-bar/nav-right/nav-search/nav-searc
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 import {NavigationItem} from './admin/navigation/navigation';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgJsonEditorModule} from "ang-jsoneditor";
+import {BreadcrumbModule} from "./admin/shared/breadcrumb/breadcrumb.module";
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppRoutingModule,
     PerfectScrollbarModule,
     BrowserAnimationsModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    NgJsonEditorModule,
+    BreadcrumbModule
   ],
   providers: [NavigationItem],
   bootstrap: [AppComponent]
