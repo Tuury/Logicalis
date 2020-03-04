@@ -25,7 +25,7 @@
                   <div class="form-group">
                     <label class="form-label">GRUPO DE INSTANCIAS<i class="fas fa-question-circle"></i></label>
                     <div class="input-group mb-3">
-                      <button class="btn btn-light" type="button" data-toggle="modal"
+                      <button class="btn btn-sm btn-light" type="button" data-toggle="modal"
                               (click)="modalSelect.show(this.HARDCODEO,grupoInstancias)"><i class="fas fa-search"></i>
                       </button>
                       <input type="text" #grupoInstancias name="grupoInstancias" id="grupoInstancias"
@@ -38,12 +38,17 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="form-label">ENTORNO DE ANSIBLE<i class="fas fa-question-circle"></i></label>
-                    <div class="input-group mb-3">
-                      <input type="text" #entornoAnsible name="entornoAnsible" id="entornoAnsible" class="form-control form-control-sm" [(ngModel)]="formInput.entornoAnsible" >
-                      <div class="input-group-append">
-                        <button class="btn btn-light" type="button" data-toggle="modal" (click)="modalSelect.show(this.ENTORNO_ANSIBLE,entornoAnsible)"><i class="fas fa-arrow-circle-down"></i></button>
-                      </div>
-                    </div>
+                    <select name="entornoAnsible" class="form-control form-control-sm form-control-default"
+                            [(ngModel)]="formInput.entornoAnsible">
+                      <option value="opt1">Select One Value Only</option>
+                      <option value="opt2">Type 2</option>
+                      <option value="opt3">Type 3</option>
+                      <option value="opt4">Type 4</option>
+                      <option value="opt5">Type 5</option>
+                      <option value="opt6">Type 6</option>
+                      <option value="opt7">Type 7</option>
+                      <option value="opt8">Type 8</option>
+                    </select>
                   </div>
                 </div>
               </div>

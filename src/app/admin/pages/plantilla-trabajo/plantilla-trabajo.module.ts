@@ -6,7 +6,7 @@ import {PlantillaTrabajoComponent} from './plantilla-trabajo.component';
 import {CustomFormsModule} from 'ng2-validation';
 import {FormsModule} from '@angular/forms';
 import {CardModule} from '../../shared/card/card.module';
-import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbNavModule, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {NgJsonEditorModule} from 'ang-jsoneditor';
 import {ModalModule} from '../../shared/ui-modal/modal.module';
 
@@ -19,7 +19,8 @@ import {ModalModule} from '../../shared/ui-modal/modal.module';
     CardModule,
     NgbTooltipModule,
     NgJsonEditorModule,
-    ModalModule
+    ModalModule,
+    NgbNavModule
   ],
   declarations: [PlantillaTrabajoComponent]
 })
