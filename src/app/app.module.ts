@@ -14,11 +14,16 @@ import {NavLeftComponent} from './admin/nav-bar/nav-left/nav-left.component';
 import {NavRightComponent} from './admin/nav-bar/nav-right/nav-right.component';
 import {PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 import {NavSearchComponent} from './admin/nav-bar/nav-right/nav-search/nav-search.component';
-import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDropdownModule, NgbNavModule, NgbTabsetModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import {NavigationItem} from './admin/navigation/navigation';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgJsonEditorModule} from "ang-jsoneditor";
-import {BreadcrumbModule} from "./admin/shared/breadcrumb/breadcrumb.module";
+import {NgJsonEditorModule} from 'ang-jsoneditor';
+import {BreadcrumbModule} from './admin/shared/breadcrumb/breadcrumb.module';
+import {PlantillaTrabajoComponent} from './admin/pages/plantilla-trabajo/plantilla-trabajo.component';
+import {CardModule} from './admin/shared/card/card.module';
+import {FormsModule} from '@angular/forms';
+import {ModalModule} from './admin/shared/ui-modal/modal.module';
+import {SelectModule} from 'ng-select';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,8 @@ import {BreadcrumbModule} from "./admin/shared/breadcrumb/breadcrumb.module";
     NavItemComponent,
     NavLeftComponent,
     NavRightComponent,
-    NavSearchComponent
+    NavSearchComponent,
+    PlantillaTrabajoComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,14 @@ import {BreadcrumbModule} from "./admin/shared/breadcrumb/breadcrumb.module";
     BrowserAnimationsModule,
     NgbDropdownModule,
     NgJsonEditorModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    NgbTabsetModule,
+    CardModule,
+    FormsModule,
+    NgbTooltipModule,
+    NgbNavModule,
+    ModalModule,
+    SelectModule,
   ],
   providers: [NavigationItem],
   bootstrap: [AppComponent]

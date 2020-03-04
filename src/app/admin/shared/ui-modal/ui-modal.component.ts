@@ -30,6 +30,12 @@ export class UiModalComponent implements OnInit {
     document.querySelector('body').classList.add('modal-open');
   }
 
+  public showEmpty(): void {
+    this.visible = true;
+    setTimeout(() => this.visibleAnimate = true, 100);
+    document.querySelector('body').classList.add('modal-open');
+  }
+
   public hide(): void {
     this.visibleAnimate = false;
     setTimeout(() => this.visible = false, 300);

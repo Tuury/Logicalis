@@ -1,24 +1,512 @@
-<app-card hidHeader [options]="false" blockClass="table-border-style">
-  <span class="badge m-r-5  badge-pill badge-light">PLANTILLAS</span>
-  <div class="table-responsive">
-    <table class="table table-bordered">
-      <tbody>
-      <tr *ngFor="let p of [1,2,3]">
-        <td>
-          <div class="float-left">
-            <i class="far fa-circle"></i>
-            <label> {{p}}</label>
-            <span class="badge m-r-5  badge-pill badge-light">{{p}}</span>
+<app-card cardTitle="Plantilla De Trabajo" blockClass="table-border-style">
+  <ul ngbNav #nav="ngbNav" class="nav-tabs" >
+    <li [ngbNavItem]="1" class="m-r-15">
+      <a ngbNavLink class="nan">Detalles</a>
+      <ng-template ngbNavContent>
+        <form #trabajoForm="ngForm" class="editForm m-t-15" novalidate>
+          <div class="row">
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <label class="form-control-label"><i class="asterisco">* </i> NOMBRE</label>
+                <input class="form-control form-control-sm input-md" id="nombre" name="nombre" type="text"
+                       [(ngModel)]="formInput.nombre">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <label class="form-label">DESCRIPCION</label>
+                <input class="form-control form-control-sm" name="descripcion"
+                       minlength="6" [(ngModel)]="formInput.descripcion">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <div class="flex-space-between">
+                  <div>
+                    <label class="form-label"><i class="asterisco">* </i>TIPO DE TRABAJO
+                      <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" id="name" name="name">
+                    <label class="form-check-label f-14" for="name">Preguntar al ejecutar</label>
+                  </div>
+                </div>
+                  <select name="select" class="form-control form-control-sm form-control-default" [(ngModel)]="formInput.tipoDeTrabajo">
+                    <option value="opt1">Select One Value Only</option>
+                    <option value="opt2">Type 2</option>
+                    <option value="opt3">Type 3</option>
+                    <option value="opt4">Type 4</option>
+                    <option value="opt5">Type 5</option>
+                    <option value="opt6">Type 6</option>
+                    <option value="opt7">Type 7</option>
+                    <option value="opt8">Type 8</option>
+                  </select>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <div class="flex-space-between">
+                  <div>
+                    <label class="form-label"><i class="asterisco">* </i>INVENTARIO
+                      <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" name="cache">
+                    <label class="form-check-label f-14" for="cache">Preguntar al ejecutar</label>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <button class="btn btn-sm btn-light" type="button" data-toggle="modal"
+                          (click)="modalSelect.show(this.HARDCODEO,inventario)"><i class="fas fa-search"></i>
+                  </button>
+                  <input type="text" #inventario name="inventario" id="inventario"
+                         [(ngModel)]="formInput.inventario" class="form-control form-control-sm" placeholder="">
+                  <div class="input-group-append">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <label class="form-label"><i class="asterisco">* </i>PROYECTO <i class="fas fa-question-circle"
+                                                                                 [placement]="'top'"
+                                                                                 ngbTooltip="tooltip on top"></i></label>
+                <div class="input-group mb-3">
+                  <button class="btn btn-sm btn-light" type="button" data-toggle="modal"
+                          (click)="modalSelect.show(this.HARDCODEO,proyecto)"><i class="fas fa-search"></i>
+                  </button>
+                  <input type="text" #proyecto name="proyecto" id="proyecto"
+                         [(ngModel)]="formInput.proyecto" class="form-control form-control-sm">
+                  <div class="input-group-append">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <label class="form-label"><i class="asterisco">* </i>PLAYBOOK <i class="fas fa-question-circle"
+                                                                                 [placement]="'top'"
+                                                                                 ngbTooltip="tooltip on top"></i></label>
+                <div class="input-group mb-3">
+                  <button class="btn btn-sm btn-light" type="button" data-toggle="modal"
+                          (click)="modalSelect.show(this.HARDCODEO,playbook)"><i class="fas fa-search"></i>
+                  </button>
+                  <input type="text" #playbook name="playbook" id="playbook"
+                         [(ngModel)]="formInput.playbook" class="form-control form-control-sm">
+                  <div class="input-group-append">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <div class="flex-space-between">
+                  <div>
+                    <label class="form-label">CREDENCIAL
+                      <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" name="cache">
+                    <label class="form-check-label f-14" for="cache">Preguntar al ejecutar</label>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <button class="btn btn-sm btn-light" type="button" data-toggle="modal"
+                          (click)="modalSelect.show(this.HARDCODEO,credencial)"><i class="fas fa-search"></i>
+                  </button>
+                  <input type="text" #credencial name="credencial" id="credencial"
+                         [(ngModel)]="formInput.credencial" class="form-control form-control-sm">
+                  <div class="input-group-append">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <label class="form-label">FORKS <i class="fas fa-question-circle" [placement]="'top'"
+                                                   ngbTooltip="tooltip on top"></i></label>
+                <div class="input-group mb-3">
+                  <button class="btn btn-sm btn-light" type="button" data-toggle="modal"
+                          (click)="modalSelect.show(this.HARDCODEO,forks)"><i class="fas fa-search"></i>
+                  </button>
+                  <input type="text" #forks name="forks" id="forks"
+                         [(ngModel)]="formInput.forks" class="form-control form-control-sm">
+                  <div class="input-group-append">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <div class="flex-space-between">
+                  <div>
+                    <label class="form-label">LIMITE
+                      <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" name="cache">
+                    <label class="form-check-label f-14" for="cache">Preguntar al ejecutar</label>
+                  </div>
+                </div>
+                <input class="form-control form-control-sm" name="validation-password"
+                       [(ngModel)]="formInput.limite">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <div class="flex-space-between">
+                  <div>
+                    <label class="form-label"><i class="asterisco">* </i>NIVEL DE DETALLE
+                      <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" name="cache">
+                    <label class="form-check-label f-14" for="cache">Preguntar al ejecutar</label>
+                  </div>
+                </div>
+                <select name="select" class="form-control form-control-sm form-control-default" [(ngModel)]="formInput.nivelDeDetalle">
+                  <option value="opt1">Select One Value Only</option>
+                  <option value="opt2">Type 2</option>
+                  <option value="opt3">Type 3</option>
+                  <option value="opt4">Type 4</option>
+                  <option value="opt5">Type 5</option>
+                  <option value="opt6">Type 6</option>
+                  <option value="opt7">Type 7</option>
+                  <option value="opt8">Type 8</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <div class="flex-space-between">
+                  <div>
+                    <label class="form-label">ETIQUETAS DE TRABAJO
+                      <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" name="cache">
+                    <label class="form-check-label f-14" for="cache">Preguntar al ejecutar</label>
+                  </div>
+                </div>
+                <input class="form-control form-control-sm input-md" id="etiquetasDeTrabajo" name="etiquetasDeTrabajo"
+                       type="text"
+                       [(ngModel)]="formInput.etiquetasDeTrabajo">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <div class="flex-space-between">
+                  <div>
+                    <label class="form-label">OMITIR ETIQUETAS
+                      <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" name="cache">
+                    <label class="form-check-label f-14" for="cache">Preguntar al ejecutar</label>
+                  </div>
+                </div>
+                <input class="form-control form-control-sm input-md" id="omitirEtiquetas" name="omitirEtiquetas"
+                       type="text"
+                       [(ngModel)]="formInput.omitirEtiquetas">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <label class="form-control-label">ETIQUETAS <i class="fas fa-question-circle" [placement]="'top'"
+                                                               ngbTooltip="tooltip on top"></i></label>
+                <input class="form-control form-control-sm input-md" id="etiquetas" name="etiquetas" type="text"
+                       [(ngModel)]="formInput.etiquetas">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <label class="form-control-label">ENTORNO DE ANSIBLE <i class="fas fa-question-circle"
+                                                                        [placement]="'top'"
+                                                                        ngbTooltip="tooltip on top"></i></label>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control form-control-sm" name="entornoAnsible" id="entornoAnsible"
+                         #entornoAnsible [(ngModel)]="formInput.entornoAnsible">
+                  <div class="input-group-append">
+                    <button class="btn btn-light" type="button" data-toggle="modal"
+                            (click)="modalSelect.show(this.ENTORNO_ANSIBLE,entornoAnsible)"><i
+                      class="fas fa-arrow-circle-down"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <label class="form-control-label">GRUPOS DE INSTANCIAS <i class="fas fa-question-circle"
+                                                                          [placement]="'top'"
+                                                                          ngbTooltip="tooltip on top"></i></label>
+                <div class="input-group mb-3">
+                  <button class="btn btn-sm btn-light" type="button" data-toggle="modal"
+                          (click)="modalSelect.show(this.HARDCODEO,grupoInstancias)"><i class="fas fa-search"></i>
+                  </button>
+                  <input type="text" #grupoInstancias name="grupoInstancias" id="grupoInstancias"
+                         [(ngModel)]="formInput.grupoInstancias" class="form-control form-control-sm">
+                  <div class="input-group-append">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <label class="form-control-label">JOB SLICING <i class="fas fa-question-circle" [placement]="'top'"
+                                                                 ngbTooltip="tooltip on top"></i></label>
+                <div class="input-group mb-3">
+                  <button class="btn btn-sm btn-light" type="button" data-toggle="modal"
+                          (click)="modalSelect.show(this.HARDCODEO,jobSlicing)"><i class="fas fa-search"></i>
+                  </button>
+                  <input type="text" #jobSlicing name="jobSlicing" id="jobSlicing"
+                         [(ngModel)]="formInput.jobSlicing" class="form-control form-control-sm">
+                  <div class="input-group-append">
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <label class="form-control-label">TIMEOUT <i class="fas fa-question-circle" [placement]="'top'"
+                                                             ngbTooltip="tooltip on top"></i></label>
+                <div class="input-group mb-3">
+                  <button class="btn btn-sm btn-light" type="button" data-toggle="modal"
+                          (click)="modalSelect.show(this.HARDCODEO,timeout)"><i class="fas fa-search"></i>
+                  </button>
+                  <input type="text" #timeout name="timeout" id="timeout"
+                         [(ngModel)]="formInput.timeout" class="form-control form-control-sm">
+                  <div class="input-group-append">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xs-4">
+              <div class="form-group">
+                <div class="flex-space-between">
+                  <div>
+                    <label class="form-label">MOSTRAR CAMBIOS
+                      <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
+                    </label>
+                  </div>
+                  <div>
+                    <input class="form-check-input" type="checkbox" id="mostrarCambios" name="mostrarCambios">
+                    <label class="form-check-label f-14" for="mostrarCambios">Preguntar al ejecutar</label>
+                  </div>
+                </div>
+              </div>
+              <div class="switch switch-primary d-inline m-r-10 pt-0">
+                <input type="checkbox" id="switch-p-1" checked [ngModel]="formInput.mostrarCambios">
+                <label for="switch-p-1" class="cr"></label>
+              </div>
+            </div>
           </div>
-          <div class="float-right">
-            <i class="far fa-trash-alt"></i>
+          <label>OPCIONES</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="privilegios" name="privilegios"
+                   [ngModel]="formInput.privilegios">
+            <label class="form-check-label" for="privilegios">ACTIVAR LA ELEVACION DE PRIVILEGIOS <i
+              class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i></label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="callbacks" name="callbacks"
+                   [ngModel]="formInput.callbacks">
+            <label class="form-check-label" for="callbacks">PERMITIR LA EJECUCION UTILIZANDO CALLBACKS <i
+              class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i></label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="trabajosConcurrentes" name="trabajosConcurrentes"
+                   [ngModel]="formInput.trabajosConcurrentes">
+            <label class="form-check-label" for="trabajosConcurrentes">ACTIVAR LOS TRABAJOS CONCURRENTES <i
+              class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i></label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="cache" name="cache" [ngModel]="formInput.cache">
+            <label class="form-check-label" for="cache">USAR CACHE DE EVENTOS <i class="fas fa-question-circle"
+                                                                                 [placement]="'top'"
+                                                                                 ngbTooltip="tooltip on top"></i></label>
           </div>
 
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+          <div class="form-group text-center flex-justify-end">
+            <button type="button" class="btn btn-primary btn-raised" (click)="save(trabajoForm)"> Guardar
+              <span style="margin-left:10px;"><i class="feather icon-chevron-right"></i></span></button>
+          </div>
+        </form>
+
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="2" class="m-r-15">
+      <a ngbNavLink>Permisos</a>
+      <ng-template ngbNavContent>
+
+        <div class="row m-t-15">
+          <div class="col-sm-8 col-xs-8 col-xl-4">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control form-control-sm">
+              <button class="btn btn-sm btn-light" type="button" data-toggle="modal"><i class="fas fa-search"></i>
+              </button>
+              <button class="btn btn-sm btn-light" type="button">CLAVE</button>
+            </div>
+          </div>
+          <div class="col-xl-8 col-sm-4 col-xs-4">
+            <div class="btn-group mb-2 mr-2 float-right">
+              <button class="btn btn-sm btn-success" type="button" (click)="permisosModal.showEmpty()"><i
+                class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Funciones</th>
+              <th>Funciones de Equipo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let u of usuarios">
+              <td>{{u.nombre}}</td>
+              <td>{{u.funcion}}</td>
+              <td>{{u.funcionEquipo}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3" class="m-r-15">
+      <a ngbNavLink>Notificacion</a>
+      <ng-template ngbNavContent>
+        <p>Notificacion</p>
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="4" class="m-r-15">
+      <a ngbNavLink>Tareas Completadas</a>
+      <ng-template ngbNavContent>
+        <p>Tareas Completadas</p>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
 </app-card>
+
+<app-ui-modal #modalSelect dialogClass="modal-dialog-centered modal">
+  <div class="app-modal-header">
+    <h5 class="modal-title">Seleccione</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalSelect.hide()">
+      <span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+
+    <div class="col-sm-12 col-xs-12 col-xl-12">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control form-control-sm">
+        <button class="btn btn-sm btn-light" type="button" data-toggle="modal"><i class="fas fa-search"></i>
+        </button>
+        <button class="btn btn-sm btn-light" type="button">CLAVE</button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Funciones</th>
+          <th>Funciones de Equipo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let u of usuarios">
+          <td>{{u.nombre}}</td>
+          <td>{{u.funcion}}</td>
+          <td>{{u.funcionEquipo}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-sm btn-secondary m-r-15" data-dismiss="modal" (click)="modalSelect.hide()">
+      Cancelar
+    </button>
+    <button type="button" class="btn btn-sm btn-success">Guardar</button>
+  </div>
+</app-ui-modal>
+
+<app-ui-modal #permisos dialogClass="modal-dialog-centered modal-lg">
+  <div class="app-modal-header">
+    <h5 class="modal-title">Añadir Usuarios/Equipos</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="permisos.hide()">
+      <span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <label class="m-b-15"><span class="badge badge-pill badge-dark">1</span> Por favor selecciones Usuarios/Equipos de
+      la siguiente lista.</label>
+
+    <ul ngbNav #nav2="ngbNav" class="nav-tabs">
+      <li [ngbNavItem]="1">
+        <a ngbNavLink>Usuarios</a>
+        <ng-template ngbNavContent>
+          <div class="col-sm-12 col-xs-12 col-xl-12">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control form-control-sm">
+              <button class="btn btn-sm btn-light" type="button" data-toggle="modal"><i class="fas fa-search"></i>
+              </button>
+              <button class="btn btn-sm btn-light" type="button">CLAVE</button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th>Usuario</th>
+                <th>Funciones</th>
+                <th>Funciones de Equipo</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let u of usuarios">
+                <td>{{u.nombre}}</td>
+                <td>{{u.funcion}}</td>
+                <td>{{u.funcionEquipo}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>Equipos</a>
+        <ng-template ngbNavContent>
+          <p>Equipos</p>
+        </ng-template>
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav2" class="mt-2"></div>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-sm btn-secondary m-r-15" data-dismiss="modal" (click)="permisos.hide()">
+      Cancelar
+    </button>
+    <button type="button" class="btn btn-sm btn-success">Guardar</button>
+  </div>
+</app-ui-modal>
+
 

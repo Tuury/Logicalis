@@ -1,78 +1,135 @@
 <div class="row">
   <div class="col-sm-12">
     <app-card cardTitle="NUEVO PROYECTO">
-      <nav class="nav nav-pills nav-fill">
-        <a class="nav-item nav-link active" >Active</a>
-        <a class="nav-item nav-link" href="#">Link</a>
-        <a class="nav-item nav-link" href="#">Link</a>
-        <a class="nav-item nav-link disabled" href="#">Disabled</a>
-      </nav>
-      <form #proyectoForm="ngForm" class="editForm" novalidate>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-control-label">NOMBRE</label>
-              <input class="form-control form-control-sm input-md" id="nombre" name="nombre" type="text"
-                     [(ngModel)]="formInput.nombre">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">DESCRIPCION</label>
-              <input class="form-control form-control-sm" name="descripcion"
-                     minlength="6" [(ngModel)]="formInput.descripcion">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">ORGANIZACION <i class="fas fa-question-circle"></i></label>
-              <select name="organizacion" class="form-control form-control-sm form-control-default"
-                      [(ngModel)]="formInput.organizacion">
-                <option value="opt1">Select One Value Only</option>
-                <option value="opt2">Type 2</option>
-                <option value="opt3">Type 3</option>
-                <option value="opt4">Type 4</option>
-                <option value="opt5">Type 5</option>
-                <option value="opt6">Type 6</option>
-                <option value="opt7">Type 7</option>
-                <option value="opt8">Type 8</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">TIPO SCM <i class="fas fa-question-circle"></i></label>
-              <div class="input-group mb-3">
-                <input type="text" class="form-control form-control-sm" name="scm" #scm [(ngModel)]="formInput.scm">
-                <div class="input-group-append">
-                  <button class="btn btn-light" type="button" data-toggle="modal"
-                          (click)="modalSelect.show(this.SCM,scm)"><i class="fas fa-arrow-circle-down"></i>
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li [ngbNavItem]="1" class="m-r-15">
+          <a ngbNavLink>Detalles</a>
+          <ng-template ngbNavContent>
+            <form #proyectoForm="ngForm" class="editForm" novalidate>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-control-label">NOMBRE</label>
+                    <input class="form-control form-control-sm input-md" id="nombre" name="nombre" type="text"
+                           [(ngModel)]="formInput.nombre">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-label">DESCRIPCION</label>
+                    <input class="form-control form-control-sm" name="descripcion"
+                           minlength="6" [(ngModel)]="formInput.descripcion">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-label">ORGANIZACION <i class="fas fa-question-circle"></i></label>
+                    <select name="organizacion" class="form-control form-control-sm form-control-default"
+                            [(ngModel)]="formInput.organizacion">
+                      <option value="opt1">Select One Value Only</option>
+                      <option value="opt2">Type 2</option>
+                      <option value="opt3">Type 3</option>
+                      <option value="opt4">Type 4</option>
+                      <option value="opt5">Type 5</option>
+                      <option value="opt6">Type 6</option>
+                      <option value="opt7">Type 7</option>
+                      <option value="opt8">Type 8</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-label">TIPO SCM <i class="fas fa-question-circle"></i></label>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control form-control-sm" name="scm" #scm [(ngModel)]="formInput.scm">
+                      <div class="input-group-append">
+                        <button class="btn btn-light" type="button" data-toggle="modal"
+                                (click)="modalSelect.show(this.SCM,scm)"><i class="fas fa-arrow-circle-down"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="form-label">ENTORNO DE ANSIBLE <i class="fas fa-question-circle"></i></label>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control form-control-sm" name="entornoAnsible" #entornoAnsible [(ngModel)]="formInput.entornoAnsible">
+                      <div class="input-group-append">
+                        <button class="btn btn-light" type="button" data-toggle="modal"
+                                (click)="modalSelect.show(this.ENTORNO_ANSIBLE,entornoAnsible)"><i class="fas fa-arrow-circle-down"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group text-center flex-justify-end">
+                <button type="button" class="btn btn-light btn-raised m-l-10" (click)="cancel()"> CANCELAR
+                </button>
+                <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(proyectoForm)"> GUARDAR
+                </button>
+              </div>
+            </form>
+
+
+
+          </ng-template>
+        </li>
+
+        <li [ngbNavItem]="2" class="m-r-15">
+          <a ngbNavLink>Usuarios</a>
+          <ng-template ngbNavContent>
+
+            <div class="row m-t-15">
+              <div class="col-sm-8 col-xs-8 col-xl-4">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control form-control-sm">
+                  <button class="btn btn-sm btn-light" type="button" data-toggle="modal"><i class="fas fa-search"></i>
+                  </button>
+                  <button class="btn btn-sm btn-light" type="button">CLAVE</button>
+                </div>
+              </div>
+              <div class="col-xl-8 col-sm-4 col-xs-4">
+                <div class="btn-group mb-2 mr-2 float-right">
+                  <button class="btn btn-sm btn-success" type="button" (click)="permisosModal.showEmpty()"><i
+                    class="fas fa-plus"></i>
                   </button>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">ENTORNO DE ANSIBLE <i class="fas fa-question-circle"></i></label>
-              <div class="input-group mb-3">
-                <input type="text" class="form-control form-control-sm" name="entornoAnsible" #entornoAnsible [(ngModel)]="formInput.entornoAnsible">
-                <div class="input-group-append">
-                  <button class="btn btn-light" type="button" data-toggle="modal"
-                          (click)="modalSelect.show(this.ENTORNO_ANSIBLE,entornoAnsible)"><i class="fas fa-arrow-circle-down"></i>
-                  </button>
-                </div>
-              </div>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>Usuario</th>
+                  <th>Funciones</th>
+                  <th>Funciones de Equipo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let u of usuarios">
+                  <td>{{u.nombre}}</td>
+                  <td>{{u.funcion}}</td>
+                  <td>{{u.funcionEquipo}}</td>
+                </tr>
+                </tbody>
+              </table>
             </div>
-          </div>
-        </div>
-        <div class="form-group text-center flex-justify-end">
-          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="cancel()"> CANCELAR
-          </button>
-          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(proyectoForm)"> GUARDAR
-          </button>
-        </div>
-      </form>
+
+
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3" class="m-r-15">
+          <a ngbNavLink>Permisos</a>
+          <ng-template ngbNavContent>
+            <p>Permisos</p>
+          </ng-template>
+        </li>
+
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
     </app-card>
     <app-card cardTitle="Proyectos" blockClass="table-border-style">
       <div class="table-responsive">
@@ -95,6 +152,7 @@
           </tbody>
         </table>
       </div>
+
     </app-card>
   </div>
 </div>
@@ -110,3 +168,6 @@
     <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalSelect.hide()">Cancelar</button>
   </div>
 </app-ui-modal>
+
+
+

@@ -22,6 +22,7 @@ export class OrganizacionesComponent implements OnInit {
 
   ENTORNO_ANSIBLE = DataSelect.ENTORNO_ANSIBLE;
   public HARDCODEO = DataSelect.HARDCODEO;
+  public usuarios = [{nombre: 'carlos' , funcion: 'tecnico', funcionEquipo: 'electronico'}];
   organizaciones: any[] = [
     {
       nombre: 'Default'

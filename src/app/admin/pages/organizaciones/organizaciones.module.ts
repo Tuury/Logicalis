@@ -7,6 +7,7 @@ import {CustomFormsModule} from 'ng2-validation';
 import {FormsModule} from '@angular/forms';
 import {CardModule} from '../../shared/card/card.module';
 import {ModalModule} from '../../shared/ui-modal/modal.module';
+import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {ModalModule} from '../../shared/ui-modal/modal.module';
         CustomFormsModule,
         FormsModule,
         CardModule,
-        ModalModule
+        ModalModule,
+        NgbNavModule
     ],
   declarations: [OrganizacionesComponent]
 })

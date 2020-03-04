@@ -1,6 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {UiModalComponent} from "../../shared/ui-modal/ui-modal.component";
-import {DataSelect} from "../../shared/data/dataSelect";
+import { JsonEditorComponent, JsonEditorOptions } from 'ang-jsoneditor';
+import {UiModalComponent} from '../../shared/ui-modal/ui-modal.component';
+import {DataSelect} from '../../shared/data/dataSelect';
+import {IOption} from 'ng-select';
+
 
 export class FormInput {
   nombre: any;
@@ -29,25 +32,28 @@ export class FormInput {
 
 
 @Component({
-  selector: 'app-nueva-plantilla',
-  templateUrl: './nueva-plantilla.component.html',
-  styleUrls: ['./nueva-plantilla.component.scss']
+  selector: 'app-plantilla',
+  templateUrl: './plantillas.component.html',
+  styleUrls: ['./plantillas.component.scss']
 })
-export class NuevaPlantillaComponent implements OnInit {
-
-  @ViewChild('modalSelect', {static: false}) exampleModalCenter: UiModalComponent;
-  formInput: FormInput;
-  form: any;
-  public isSubmit: boolean;
-
-  public TIPO_DE_TRABAJO = DataSelect.TIPO_DE_TRABAJO;
-  public NIVEL_DE_DETALLE = DataSelect.NIVEL_DE_DETALLE;
-  public ENTORNO_ANSIBLE = DataSelect.ENTORNO_ANSIBLE;
-  public HARDCODEO = DataSelect.HARDCODEO;
+export class PlantillasComponent implements OnInit {
 
   constructor() {
     this.isSubmit = false;
   }
+
+
+  public PLAYER_ONE: Array<IOption> = [
+    {value: '0', label: 'Alabama'},
+    {value: '1', label: 'Wyoming'},
+    {value: '2', label: 'Coming'},
+    {value: '3', label: 'Henry Die'},
+    {value: '4', label: 'John Doe'}
+  ];
+  @ViewChild('modalSelect', {static: false}) exampleModalCenter: UiModalComponent;
+  formInput: FormInput;
+  form: any;
+  public isSubmit: boolean;
 
   ngOnInit() {
     this.formInput = {
@@ -130,6 +136,4 @@ export class NuevaPlantillaComponent implements OnInit {
   save(form: any) {
     console.log(form.form.value);
   }
-
-
 }

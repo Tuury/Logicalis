@@ -33,18 +33,10 @@ const NavigationItems = [
     icon: 'feather icon-activity',
     children: [
       {
-        id: 'plantillaTrabajo',
-        title: 'Plantillas de Trabajo',
+        id: 'plantillas',
+        title: 'Plantillas',
         type: 'item',
-        url: '/plantillaTrabajo',
-        classes: 'nav-item',
-        icon: 'feather icon-edit',
-      },
-      {
-        id: 'plantillaWorkflow',
-        title: 'Plantillas de Workflow',
-        type: 'item',
-        url: '/plantillaWorkflow',
+        url: '/plantillas',
         classes: 'nav-item',
         icon: 'feather icon-edit',
       },

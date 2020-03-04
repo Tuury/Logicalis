@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { JsonEditorComponent, JsonEditorOptions } from 'ang-jsoneditor';
+import {UiModalComponent} from '../../shared/ui-modal/ui-modal.component';
 
 
 export class FormInput {
@@ -25,16 +26,20 @@ export class PlantillaWorkflowComponent implements OnInit {
   public editorOptions: JsonEditorOptions;
   public data: any;
   @ViewChild(JsonEditorComponent, { static: true }) editor: JsonEditorComponent;
+  @ViewChild('modalSelect', {static: false}) modalComponent: UiModalComponent;
+  @ViewChild('permisos', {static: false}) permisosModal: UiModalComponent;
+
+  public usuarios = [{nombre: 'carlos' , funcion: 'tecnico', funcionEquipo: 'electronico'}];
 
 
   constructor() {
     this.isSubmit = false;
     this.editorOptions = new JsonEditorOptions();
-    this.editorOptions.mode = 'code'; //set only one mode
+    this.editorOptions.mode = 'code'; // set only one mode
     this.editorOptions.mainMenuBar = false;
     this.editorOptions.statusBar = false;
 
-    this.data = {"products":[{"name":"car","product":[{"name":"honda","model":[{"id":"civic","name":"civic"},{"id":"accord","name":"accord"},{"id":"crv","name":"crv"},{"id":"pilot","name":"pilot"},{"id":"odyssey","name":"odyssey"}]}]}]}
+    this.data = {products: [{name: 'car', product: [{name: 'honda', model: [{id: 'civic', name: 'civic'}, {id: 'accord', name: 'accord'}, {id: 'crv', name: 'crv'}, {id: 'pilot', name: 'pilot'}, {id: 'odyssey', name: 'odyssey'}]}]}]};
 
   }
 

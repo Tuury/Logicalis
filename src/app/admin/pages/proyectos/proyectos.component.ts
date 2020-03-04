@@ -21,6 +21,7 @@ export class ProyectosComponent implements OnInit {
   form: any;
   public isSubmit: boolean;
 
+  public usuarios = [{nombre: 'carlos' , funcion: 'tecnico', funcionEquipo: 'electronico'}];
   public ENTORNO_ANSIBLE = DataSelect.ENTORNO_ANSIBLE;
   public SCM = DataSelect.SCM;
   proyectos: any[] = [

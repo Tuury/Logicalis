@@ -1,110 +1,211 @@
-<div class="row">
-  <div class="col-sm-12">
-    <app-card cardTitle="NUEVA PLANTILLA DE FLUJO DE TRABAJO">
-      <div class="botonera">
-        <button type="button" class="btn btn-light">Detalles</button>
-        <button type="button" class="btn btn-light">Permisos</button>
-        <button type="button" class="btn btn-light">Tareas Completadas</button>
-        <button type="button" class="btn btn-light">Programaciones</button>
-        <button type="button" class="btn btn-primary">Anadir Encuesta</button>
-        <button type="button" class="btn btn-primary">Visualizador de flujos de trabajo</button>
-      </div>
-      <form #workflowForm="ngForm" class="editForm">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-control-label"><i class="asterisco">* </i>NOMBRE</label>
-              <input class="form-control form-control-sm input-md" id="nombre" name="nombre" type="text"
-                     [(ngModel)]="formInput.nombre">
+<app-card cardTitle="PLANTILLA DE FLUJO DE TRABAJO" blockClass="table-border-style">
+  <ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li [ngbNavItem]="1" class="m-r-15">
+      <a ngbNavLink>Detalles</a>
+      <ng-template ngbNavContent>
+        <form #workflowForm="ngForm" class="editForm">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-control-label"><i class="asterisco">* </i>NOMBRE</label>
+                <input class="form-control form-control-sm input-md" id="nombre" name="nombre" type="text"
+                       [(ngModel)]="formInput.nombre">
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">DESCRIPCION</label>
-              <input class="form-control form-control-sm" name="descripcion"
-                     minlength="6" [(ngModel)]="formInput.descripcion">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">DESCRIPCION</label>
+                <input class="form-control form-control-sm" name="descripcion"
+                       minlength="6" [(ngModel)]="formInput.descripcion">
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">ORGANIZACION <i class="fas fa-question-circle" [placement]="'top'"
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">ORGANIZACION <i class="fas fa-question-circle" [placement]="'top'"
+                                                          ngbTooltip="tooltip on top"></i></label>
+                <select name="tipoDeTrabajo" class="form-control form-control-sm form-control-default"
+                        [(ngModel)]="formInput.organizacion">
+                  <option value="opt1">Select One Value Only</option>
+                  <option value="opt2">Type 2</option>
+                  <option value="opt3">Type 3</option>
+                  <option value="opt4">Type 4</option>
+                  <option value="opt5">Type 5</option>
+                  <option value="opt6">Type 6</option>
+                  <option value="opt7">Type 7</option>
+                  <option value="opt8">Type 8</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">INVENTARIO <i class="fas fa-question-circle" [placement]="'top'"
                                                         ngbTooltip="tooltip on top"></i></label>
-              <select name="tipoDeTrabajo" class="form-control form-control-sm form-control-default"
-                      [(ngModel)]="formInput.organizacion">
-                <option value="opt1">Select One Value Only</option>
-                <option value="opt2">Type 2</option>
-                <option value="opt3">Type 3</option>
-                <option value="opt4">Type 4</option>
-                <option value="opt5">Type 5</option>
-                <option value="opt6">Type 6</option>
-                <option value="opt7">Type 7</option>
-                <option value="opt8">Type 8</option>
-              </select>
+                <select name="inventario" [(ngModel)]="formInput.inventario"
+                        class="form-control form-control-sm form-control-default">
+                  <option value="opt1">Select One Value Only</option>
+                  <option value="opt2">Type 2</option>
+                  <option value="opt3">Type 3</option>
+                  <option value="opt4">Type 4</option>
+                  <option value="opt5">Type 5</option>
+                  <option value="opt6">Type 6</option>
+                  <option value="opt7">Type 7</option>
+                  <option value="opt8">Type 8</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">INVENTARIO <i class="fas fa-question-circle" [placement]="'top'"
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">ETIQUETAS <i class="fas fa-question-circle" [placement]="'top'"
+                                                       ngbTooltip="tooltip on top"></i></label>
+                <input class="form-control form-control-sm input-md" id="etiquetas" name="etiquetas" type="text"
+                       [(ngModel)]="formInput.etiquetas">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">OPCIONES <i class="fas fa-question-circle" [placement]="'top'"
                                                       ngbTooltip="tooltip on top"></i></label>
-              <select name="inventario" [(ngModel)]="formInput.inventario" class="form-control form-control-sm form-control-default">
-                <option value="opt1">Select One Value Only</option>
-                <option value="opt2">Type 2</option>
-                <option value="opt3">Type 3</option>
-                <option value="opt4">Type 4</option>
-                <option value="opt5">Type 5</option>
-                <option value="opt6">Type 6</option>
-                <option value="opt7">Type 7</option>
-                <option value="opt8">Type 8</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">ETIQUETAS <i class="fas fa-question-circle" [placement]="'top'"
-                                                     ngbTooltip="tooltip on top"></i></label>
-              <input class="form-control form-control-sm input-md" id="etiquetas" name="etiquetas" type="text"
-                     [(ngModel)]="formInput.etiquetas">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label class="form-label">OPCIONES <i class="fas fa-question-circle" [placement]="'top'"
-                                                    ngbTooltip="tooltip on top"></i></label>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="trabajosConcurrentes" name="trabajosConcurrentes"
-                       [ngModel]="formInput.trabajosConcurrentes">
-                <label class="form-check-label" for="trabajosConcurrentes">ACTIVAR LOS TRABAJOS CONCURRENTES <i
-                  class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top" ></i></label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="trabajosConcurrentes" name="trabajosConcurrentes"
+                         [ngModel]="formInput.trabajosConcurrentes">
+                  <label class="form-check-label" for="trabajosConcurrentes">ACTIVAR LOS TRABAJOS CONCURRENTES <i
+                    class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i></label>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-12">
-            <div class="flex-space-between">
-              <div>
-                <label class="form-label">VARIABLES ADICIONALES
-                  <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
-                </label>
+            <div class="col-md-12">
+              <div class="flex-space-between">
+                <div>
+                  <label class="form-label">VARIABLES ADICIONALES
+                    <i class="fas fa-question-circle" [placement]="'top'" ngbTooltip="tooltip on top"></i>
+                  </label>
+                </div>
+                <div>
+                  <input class="form-check-input" type="checkbox" id="variablesAdicionales" name="variablesAdicionales">
+                  <label class="form-check-label f-14" for="variablesAdicionales">Preguntar al ejecutar</label>
+                </div>
               </div>
-              <div>
-                <input class="form-check-input" type="checkbox" name="variablesAdicionales">
-                <label class="form-check-label f-14" for="variablesAdicionales">Preguntar al ejecutar</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <json-editor [options]="editorOptions" [data]="data" (change)="getData($event)"></json-editor>
+              <div class="form-group">
+                <json-editor [options]="editorOptions" [data]="data" (change)="getData($event)"></json-editor>
 
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-center flex-justify-end">
+            <button type="button" class="btn btn-primary btn-raised m-l-10" (click)="save(workflowForm)"> LANZAMIENTO
+            </button>
+            <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(workflowForm)"> CANCELAR
+            </button>
+            <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(workflowForm)"> GUARDAR
+            </button>
+          </div>
+        </form>
+
+
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="2" class="m-r-15">
+      <a ngbNavLink>Permisos</a>
+      <ng-template ngbNavContent>
+
+        <div class="row m-t-15">
+          <div class="col-sm-8 col-xs-8 col-xl-4">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control form-control-sm">
+              <button class="btn btn-sm btn-light" type="button" data-toggle="modal"><i class="fas fa-search"></i>
+              </button>
+              <button class="btn btn-sm btn-light" type="button">CLAVE</button>
+            </div>
+          </div>
+          <div class="col-xl-8 col-sm-4 col-xs-4">
+            <div class="btn-group mb-2 mr-2 float-right">
+              <button class="btn btn-sm btn-success" type="button" (click)="permisosModal.showEmpty()"><i
+                class="fas fa-plus"></i>
+              </button>
             </div>
           </div>
         </div>
-        <div class="form-group text-center flex-justify-end">
-          <button type="button" class="btn btn-primary btn-raised m-l-10" (click)="save(workflowForm)"> LANZAMIENTO
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Funciones</th>
+              <th>Funciones de Equipo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let u of usuarios">
+              <td>{{u.nombre}}</td>
+              <td>{{u.funcion}}</td>
+              <td>{{u.funcionEquipo}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3" class="m-r-15">
+      <a ngbNavLink>Notificacion</a>
+      <ng-template ngbNavContent>
+        <p>Notificacion</p>
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="4" class="m-r-15">
+      <a ngbNavLink>Tareas Completadas</a>
+      <ng-template ngbNavContent>
+        <p>Tareas Completadas</p>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+</app-card>
+
+<app-ui-modal #modalSelect hideHeader="true" dialogClass="modal-dialog-centered modal-sm">
+  <div class="app-modal-body wid-250">
+    <div *ngFor="let c of modalSelect.content" class="col-md-12 col-xs-12 flex-justify-center modalContainer">
+      <button type="button" class="btn btn-outline-secondary"
+              (click)="selectedValue(c.value, this.modalSelect.formInput)">{{c.value}}</button>
+    </div>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalSelect.hide()">Cancelar</button>
+  </div>
+</app-ui-modal>
+
+<app-ui-modal #permisos hideHeader="true" dialogClass="modal-dialog-centered modal-sm">
+
+  <div class="app-modal-body">
+    <div class="row m-t-15">
+      <div class="col-sm-8 col-xs-8 col-xl-4">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control form-control-sm">
+          <button class="btn btn-sm btn-light" type="button" data-toggle="modal"><i class="fas fa-search"></i>
           </button>
-          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(workflowForm)"> CANCELAR
-          </button>
-          <button type="button" class="btn btn-light btn-raised m-l-10" (click)="save(workflowForm)"> GUARDAR
+          <button class="btn btn-sm btn-light" type="button">CLAVE</button>
+        </div>
+      </div>
+      <div class="col-xl-8 col-sm-4 col-xs-4">
+        <div class="btn-group mb-2 mr-2 float-right">
+          <button class="btn btn-sm btn-success" type="button"><i class="fas fa-plus"></i>
           </button>
         </div>
-      </form>
-    </app-card>
+      </div>
+    </div>
+
   </div>
-</div>
+
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="permisosModal.hide()">Cancelar
+    </button>
+  </div>
+</app-ui-modal>
+
+
+

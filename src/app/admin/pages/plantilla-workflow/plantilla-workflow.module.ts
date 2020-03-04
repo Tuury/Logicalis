@@ -6,8 +6,9 @@ import {PlantillaWorkflowComponent} from './plantilla-workflow.component';
 import {CustomFormsModule} from 'ng2-validation';
 import {FormsModule} from '@angular/forms';
 import {CardModule} from '../../shared/card/card.module';
-import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
-import {NgJsonEditorModule} from "ang-jsoneditor";
+import {NgbNavModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgJsonEditorModule} from 'ang-jsoneditor';
+import {ModalModule} from '../../shared/ui-modal/modal.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,9 @@ import {NgJsonEditorModule} from "ang-jsoneditor";
     FormsModule,
     CardModule,
     NgbTooltipModule,
-    NgJsonEditorModule
+    NgJsonEditorModule,
+    NgbNavModule,
+    ModalModule
   ],
   declarations: [PlantillaWorkflowComponent]
 })

@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {AdminComponent} from './admin/admin.component';
+import {PlantillaTrabajoComponent} from './admin/pages/plantilla-trabajo/plantilla-trabajo.component';
 
 
 const routes: Routes = [
@@ -10,20 +11,20 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard/crm',
+        redirectTo: 'plantillas',
         pathMatch: 'full'
       },
       {
         path: 'plantillaTrabajo',
-        loadChildren: () => import('./admin/pages/plantilla-trabajo/plantilla-trabajo.module').then(module => module.PlantillaTrabajoModule)
+        component: PlantillaTrabajoComponent
       },
       {
         path: 'plantillaWorkflow',
         loadChildren: () => import('./admin/pages/plantilla-workflow/plantilla-workflow.module').then(module => module.PlantillaWorkflowModule)
       },
       {
-        path: 'nuevaPlantilla',
-        loadChildren: () => import('./admin/pages/nueva-plantilla/nueva-plantilla.module').then(module => module.NuevaPlantillaModule)
+        path: 'plantillas',
+        loadChildren: () => import('./admin/pages/plantillas/plantillas.module').then(module => module.PlantillasModule)
       },
       {
         path: 'proyectos',
