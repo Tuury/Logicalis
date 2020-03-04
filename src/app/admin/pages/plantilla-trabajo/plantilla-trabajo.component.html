@@ -230,16 +230,16 @@
                 <label class="form-control-label">ENTORNO DE ANSIBLE <i class="fas fa-question-circle"
                                                                         [placement]="'top'"
                                                                         ngbTooltip="tooltip on top"></i></label>
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control form-control-sm" name="entornoAnsible" id="entornoAnsible"
-                         #entornoAnsible [(ngModel)]="formInput.entornoAnsible">
-                  <div class="input-group-append">
-                    <button class="btn btn-light" type="button" data-toggle="modal"
-                            (click)="modalSelect.show(this.ENTORNO_ANSIBLE,entornoAnsible)"><i
-                      class="fas fa-arrow-circle-down"></i>
-                    </button>
-                  </div>
-                </div>
+                <select name="select" class="form-control form-control-sm form-control-default" [(ngModel)]="formInput.nivelDeDetalle">
+                  <option value="opt1">Select One Value Only</option>
+                  <option value="opt2">Type 2</option>
+                  <option value="opt3">Type 3</option>
+                  <option value="opt4">Type 4</option>
+                  <option value="opt5">Type 5</option>
+                  <option value="opt6">Type 6</option>
+                  <option value="opt7">Type 7</option>
+                  <option value="opt8">Type 8</option>
+                </select>
               </div>
             </div>
             <div class="col-sm-6 col-md-4 col-xs-4">
